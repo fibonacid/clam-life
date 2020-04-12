@@ -11,6 +11,7 @@ docker-compose run web rails new . \
   --force \
   --template=template.rb \
   --database=postgresql \
+  --webpack \
   --skip-bundle
 ```
 
