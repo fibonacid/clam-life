@@ -14,4 +14,8 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log("Hello World from Webpacker");
+import { AppController } from "../lib/AppController";
+
+// Initialize Application Controller
+document.addEventListener("DOMContentLoaded", AppController.init);
+document.addEventListener("page:load", AppController.init);
