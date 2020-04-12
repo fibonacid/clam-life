@@ -1,0 +1,25 @@
+$secondary-font: "FoundersGroteskMono sans-serif";
+$primary-font: "Suisse Intl sans-serif";
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/assets/fonts/Suisse-Intl/SuisseIntl-Regular.otf") format("otf");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FoundersGroteskMono";
+  src: url("/assets/fonts/FoundersGroteskMono/FoundersGroteskMonoRegular.otf")
+    format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FoundersGroteskMono";
+  src: url("/assets/fonts/FoundersGroteskMono/FoundersGroteskMonoBold.otf")
+    format("otf");
+  font-weight: 500;
+  font-style: normal;
+}
