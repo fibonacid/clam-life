@@ -16,13 +16,13 @@ services:
         # Explicitly tell Traefik to expose this container
         - "traefik.enable=true"
         # Get the routes from http
-        - "traefik.http.routers.clam_production_web.rule=Host(`clam.life`)"
+        - "traefik.http.routers.clam_production_web.rule=Host(`clam.life`, `www.clam.life`)"
         - "traefik.http.routers.clam_production_web.entrypoints=web"
         # Redirect these routes to https
         - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
         - "traefik.http.routers.clam_production_web.middlewares=redirect-to-https"
         # Get the routes from https
-        - "traefik.http.routers.clam_production_web-secure.rule=Host(`clam.life`)"
+        - "traefik.http.routers.clam_production_web-secure.rule=Host(`clam.life`, `www.clam.life`)"
         - "traefik.http.routers.clam_production_web-secure.entrypoints=websecure"
         - "traefik.http.routers.clam_production_web-secure.tls=true"
         - "traefik.http.routers.clam_production_web-secure.tls.certresolver=myresolver"
