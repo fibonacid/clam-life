@@ -3,6 +3,8 @@ node_modules
 
 # secrets
 .env
+secrets/*
+!secrets/.gitkeep
 
 # logs
 *.log
