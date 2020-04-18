@@ -1,2 +1,21 @@
-<h1>Homepage#show</h1>
-<p>Find me in app/views/homepage/show.html.erb</p>
+<% @releases.each do |release| %>
+   <div>
+      <% byebug %>
+      <p><%= release.get_string("release-catalog-number") %></p>
+      <p><%= release.get_string("release-artist-name") %></p>
+      <p><%= release[:name] %></p>
+      <p><%= release.get_string("release-publish-date") %></p>
+      <p><%= release.get_string("release-detail") %></p>
+      <a href=<%= release.get_string("release-url")%>>BUY</a>
+      <ul>
+         <% track_list = release.get_repeater("release-track-list") %>
+         <% track_list.each_with_index do |track, index| %>
+            <li>
+               <span><%= index + 1 %></span>
+               <span><%= track.get_string("release-track-title") %></span>
+               <span><%= track.get_string("release-track-duration") %></span>
+            </li>
+         <% end %>
+      </ul>
+   </div>
+<% end %>
