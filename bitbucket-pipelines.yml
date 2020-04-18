@@ -41,14 +41,12 @@ definitions:
     - step: &deploy
         name: Deploy to remote server
         script:
-          # Set name of the directory to which deploy.
-          - export DEPLOY_DIRECTORY="/root/apps/${BITBUCKET_REPO_SLUG}"
           # Create the directory on the remote server.
           - echo "mkdir -p ${DEPLOY_DIRECTORY}" | ssh $REMOTE_SERVER_USER@$REMOTE_SERVER_IP
           # Copy the docker-compose files to the deploy directory.
           - scp ./docker-compose.* $REMOTE_SERVER_USER@$REMOTE_SERVER_IP:$DEPLOY_DIRECTORY
           # Generate a file where to build deployment scripts
-          - cat scripts/deploy_scripts.sh >> deploy_pipeline.sh
+          - cat pipeline/deploy_scripts.sh >> deploy_pipeline.sh
           # Replace BITBUCKET_REPO_SLUG placeholder with the actual value
           - sed --in-place "s/%%BITBUCKET_REPO_SLUG%%/${BITBUCKET_REPO_SLUG}/" deploy_pipeline.sh
           # Replace DEPLOY_DIRECTORY placeholder with the actual value
@@ -58,7 +56,7 @@ definitions:
           # Execute commands to update the remote application.
           - cat deploy_pipeline.sh | ssh $REMOTE_SERVER_USER@$REMOTE_SERVER_IP
           # Generate a file where to build deployment scripts
-          - cat scripts/post_deploy_scripts.sh >> post_deploy_pipeline.sh
+          - cat pipeline/post_deploy_scripts.sh >> post_deploy_pipeline.sh
           # Replace DEPLOY_DIRECTORY placeholder with the actual value
           - sed -i "s|%%DEPLOY_DIRECTORY%%|${DEPLOY_DIRECTORY}|g" post_deploy_pipeline.sh
           # Replace BITBUCKET_REPO_SLUG placeholder with the actual value
