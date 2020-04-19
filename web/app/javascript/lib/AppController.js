@@ -1,6 +1,8 @@
 import { Homepage } from "../components/Homepage";
 import { Header } from "../components/Header";
 
+require("./polyfills");
+
 /**
  * CONTROLLERS
  * -----------
