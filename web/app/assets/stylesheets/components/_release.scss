@@ -1,0 +1,22 @@
+.release {
+  color: $color-black;
+  background-color: $color-white;
+
+  width: 360px;
+  height: auto;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    padding: 10px 5px;
+  }
+
+  &__header-title {
+    font-family: $primary-font;
+    font-size: 10px;
+    text-align: left;
+  }
+}
