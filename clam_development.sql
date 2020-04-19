@@ -902,6 +902,12 @@ environment	development	2020-04-18 13:14:49.70153	2020-04-18 13:14:49.70153
 --
 
 COPY public.binda_assets (id, type, video, image, audio, svg, field_setting_id, fieldable_type, fieldable_id, content_type, file_size, file_width, file_height, created_at, updated_at) FROM stdin;
+5	Binda::Image	\N	CLAM_Website_IMG_Product1.jpg	\N	\N	16	Binda::Component	2	image/jpeg	41166	271	271	2020-04-19 17:23:26.8857	2020-04-19 17:24:45.255289
+4	Binda::Image	\N	CLAM_Website_IMG.jpg	\N	\N	15	Binda::Component	2	image/jpeg	157925	423	629	2020-04-19 17:23:26.83531	2020-04-19 17:24:45.415803
+3	Binda::Image	\N	CLAM_Website_IMG_Product2.jpg	\N	\N	16	Binda::Component	1	image/jpeg	42853	271	271	2020-04-19 16:58:02.910592	2020-04-19 17:32:02.174431
+2	Binda::Image	\N	CLAM_Website_IMG_3.jpg	\N	\N	15	Binda::Component	1	image/jpeg	119930	423	629	2020-04-19 16:57:29.038311	2020-04-19 17:32:02.358126
+7	Binda::Image	\N	CLAM_Website_IMG_Product3.jpg	\N	\N	16	Binda::Component	3	image/jpeg	44417	271	271	2020-04-19 17:32:26.450868	2020-04-19 17:33:28.326261
+6	Binda::Image	\N	CLAM_Website_IMG_2.jpg	\N	\N	15	Binda::Component	3	image/jpeg	222795	423	629	2020-04-19 17:32:26.424884	2020-04-19 17:33:28.436079
 \.
 
 
@@ -954,7 +960,9 @@ COPY public.binda_choices_selections (id, choice_id, selection_id, created_at, u
 --
 
 COPY public.binda_components (id, name, slug, publish_state, "position", structure_id, created_at, updated_at) FROM stdin;
-1	MIMICRY OF DEATH	mimicry-of-death	published	1	2	2020-04-18 13:29:44.298555	2020-04-18 13:29:44.464564
+1	MIMICRY OF DEATH	mimicry-of-death	published	3	2	2020-04-18 13:29:44.298555	2020-04-19 17:32:25.145505
+2	FANTASIA EXFORMATION  PRINCIPLE	fantasia-exformation-principle	published	2	2	2020-04-19 17:23:25.339653	2020-04-19 17:32:25.815734
+3	FINCHE LA BARCA VÁ	finche-la-barca-va	published	1	2	2020-04-19 17:32:24.466652	2020-04-19 17:32:26.003551
 \.
 
 
@@ -972,7 +980,8 @@ COPY public.binda_dates (id, date, field_setting_id, fieldable_type, fieldable_i
 
 COPY public.binda_field_groups (id, name, slug, description, "position", layout, structure_id, created_at, updated_at) FROM stdin;
 1	General details	dashboard-general-details	\N	2	\N	1	2020-04-18 13:17:15.451686	2020-04-18 13:17:15.603812
-2	General details	release-general-details		2	\N	2	2020-04-18 13:27:18.952942	2020-04-18 13:38:54.598263
+2	General details	release-general-details		1	\N	2	2020-04-18 13:27:18.952942	2020-04-19 16:56:40.88075
+3	Media	release-media		2	\N	2	2020-04-19 16:56:40.767021	2020-04-19 16:56:52.039818
 \.
 
 
@@ -990,6 +999,8 @@ COPY public.binda_field_settings (id, name, slug, description, "position", requi
 8	Detail	release-detail	Example:&nbsp;200 12&rdquo; VINYLS	4	f	f	\N	string	2	\N	t	\N	2020-04-18 13:39:45.908732	2020-04-18 13:50:17.667699
 14	URL	release-url		5	f	f	\N	string	2	\N	t	\N	2020-04-18 13:50:15.533511	2020-04-18 13:50:49.757772
 9	TrackList	release-track-list		6	f	f	\N	repeater	2	\N	t	\N	2020-04-18 13:41:33.293458	2020-04-18 14:15:16.703007
+15	Cover Image	release-cover-image	<p>This image should have the following dimensions:</p>\r\n<p>Width: 360px<br />Height: 530px</p>	1	f	f	\N	image	3	\N	t	\N	2020-04-19 16:57:03.023559	2020-04-19 17:00:55.712772
+16	Image	release-image	The image should have the following dimensions:<br /><br />Width: 200px<br />Height: 200px	2	f	f	\N	image	3	\N	t	\N	2020-04-19 16:57:32.920196	2020-04-19 17:02:09.745134
 13	Duration	release-track-duration	Duration of the track.<br /><br />HOURS:MINUTES:SECONDS	3	f	f	\N	string	2	9	t	\N	2020-04-18 13:45:41.083881	2020-04-18 13:48:50.706355
 10	Title	release-track-title		1	f	f	\N	string	2	9	t	\N	2020-04-18 13:42:38.172338	2020-04-18 13:49:49.683518
 \.
@@ -1033,6 +1044,8 @@ COPY public.binda_relations (id, field_setting_id, fieldable_type, fieldable_id)
 
 COPY public.binda_repeaters (id, "position", field_setting_id, fieldable_type, fieldable_id, created_at, updated_at) FROM stdin;
 1	1	9	Binda::Component	1	2020-04-18 13:42:23.923652	2020-04-18 13:42:24.078497
+2	1	9	Binda::Component	2	2020-04-19 17:23:26.604816	2020-04-19 17:23:26.720997
+3	1	9	Binda::Component	3	2020-04-19 17:32:26.204614	2020-04-19 17:32:26.306513
 \.
 
 
@@ -1062,15 +1075,33 @@ COPY public.binda_structures (id, name, slug, "position", has_categories, has_pr
 COPY public.binda_texts (id, content, "position", field_setting_id, fieldable_type, fieldable_id, type, created_at, updated_at) FROM stdin;
 1	Clam\n	\N	2	Binda::Board	1	Binda::String	2020-04-18 13:19:22.806128	2020-04-18 13:19:29.244541
 2	A website about the world	\N	3	Binda::Board	1	\N	2020-04-18 13:19:30.403628	2020-04-18 13:19:39.033091
-3	CLAM001	\N	4	Binda::Component	1	Binda::String	2020-04-18 13:29:44.517389	2020-04-18 13:30:25.915289
 6	12/10/2019	\N	7	Binda::Component	1	Binda::String	2020-04-18 13:35:02.240705	2020-04-18 13:38:15.987597
-4	Kuthi Jin	\N	5	Binda::Component	1	Binda::String	2020-04-18 13:31:07.238249	2020-04-18 13:38:15.998261
 13	https://bandcamp.com	\N	14	Binda::Component	1	Binda::String	2020-04-18 13:50:16.363056	2020-04-18 14:14:32.271292
 7	200 12”VINYLS	\N	8	Binda::Component	1	Binda::String	2020-04-18 13:39:47.865765	2020-04-18 14:14:32.28622
 12	09:44	\N	13	Binda::Repeater	1	Binda::String	2020-04-18 13:45:42.370748	2020-04-18 14:14:32.301779
 9	CHAOS PIT	\N	10	Binda::Repeater	1	Binda::String	2020-04-18 13:42:38.608076	2020-04-18 14:14:32.322156
 14	\N	\N	13	Binda::Component	1	Binda::String	2020-04-18 14:14:32.535045	2020-04-18 14:14:32.535045
 16	\N	\N	10	Binda::Component	1	Binda::String	2020-04-18 14:14:32.646492	2020-04-18 14:14:32.646492
+26	\N	\N	13	Binda::Component	2	Binda::String	2020-04-19 17:23:26.919885	2020-04-19 17:23:26.919885
+27	\N	\N	10	Binda::Component	2	Binda::String	2020-04-19 17:23:26.952316	2020-04-19 17:23:26.952316
+23	https://bandcamp.com	\N	14	Binda::Component	2	Binda::String	2020-04-19 17:23:26.577693	2020-04-19 17:24:45.219998
+22	200 CDs	\N	8	Binda::Component	2	Binda::String	2020-04-19 17:23:26.546625	2020-04-19 17:24:45.22748
+21	13/04/2020	\N	7	Binda::Component	2	Binda::String	2020-04-19 17:23:26.514197	2020-04-19 17:24:45.234687
+20	Voronhil	\N	5	Binda::Component	2	Binda::String	2020-04-19 17:23:26.479626	2020-04-19 17:24:45.240925
+19	CLAM003	\N	4	Binda::Component	2	Binda::String	2020-04-19 17:23:26.445081	2020-04-19 17:24:45.24823
+25		\N	10	Binda::Repeater	2	Binda::String	2020-04-19 17:23:26.792396	2020-04-19 17:24:45.559476
+24		\N	13	Binda::Repeater	2	Binda::String	2020-04-19 17:23:26.760994	2020-04-19 17:24:45.565848
+4	Kuthi Jin	\N	5	Binda::Component	1	Binda::String	2020-04-18 13:31:07.238249	2020-04-19 17:32:02.160098
+3	CLAM001	\N	4	Binda::Component	1	Binda::String	2020-04-18 13:29:44.517389	2020-04-19 17:32:02.167044
+35	\N	\N	13	Binda::Component	3	Binda::String	2020-04-19 17:32:26.483978	2020-04-19 17:32:26.483978
+36	\N	\N	10	Binda::Component	3	Binda::String	2020-04-19 17:32:26.516512	2020-04-19 17:32:26.516512
+32	https://bandcamp.com	\N	14	Binda::Component	3	Binda::String	2020-04-19 17:32:26.174963	2020-04-19 17:33:28.286999
+31	200 12” VINYLS	\N	8	Binda::Component	3	Binda::String	2020-04-19 17:32:26.140815	2020-04-19 17:33:28.295343
+30	07/03/1997	\N	7	Binda::Component	3	Binda::String	2020-04-19 17:32:26.107605	2020-04-19 17:33:28.303781
+29	Ben & Jerry	\N	5	Binda::Component	3	Binda::String	2020-04-19 17:32:26.075619	2020-04-19 17:33:28.310523
+28	CLAM002	\N	4	Binda::Component	3	Binda::String	2020-04-19 17:32:26.045117	2020-04-19 17:33:28.318036
+34		\N	10	Binda::Repeater	3	Binda::String	2020-04-19 17:32:26.378772	2020-04-19 17:33:28.576443
+33		\N	13	Binda::Repeater	3	Binda::String	2020-04-19 17:32:26.346739	2020-04-19 17:33:28.591754
 \.
 
 
@@ -1079,7 +1110,7 @@ COPY public.binda_texts (id, content, "position", field_setting_id, fieldable_ty
 --
 
 COPY public.binda_users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, unconfirmed_email, failed_attempts, unlock_token, locked_at, is_superadmin, created_at, updated_at) FROM stdin;
-1	lorenzorivosecchi3@gmail.com	$2a$11$lUvcvAyMYieGxXE1sdsxUexwMugZZdrzFnqwLqw/HbHS/abrJGNja	\N	\N	\N	1	2020-04-18 13:25:07.764493	2020-04-18 13:25:07.764493	172.26.0.1	172.26.0.1	\N	\N	\N	\N	0	\N	\N	t	2020-04-18 13:19:19.36396	2020-04-18 13:25:07.776262
+1	lorenzorivosecchi3@gmail.com	$2a$11$lUvcvAyMYieGxXE1sdsxUexwMugZZdrzFnqwLqw/HbHS/abrJGNja	\N	\N	\N	2	2020-04-19 16:55:58.221136	2020-04-18 13:25:07.764493	172.18.0.1	172.26.0.1	\N	\N	\N	\N	0	\N	\N	t	2020-04-18 13:19:19.36396	2020-04-19 16:55:58.242311
 \.
 
 
@@ -1104,7 +1135,7 @@ COPY public.schema_migrations (version) FROM stdin;
 -- Name: binda_assets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_assets_id_seq', 1, true);
+SELECT pg_catalog.setval('public.binda_assets_id_seq', 7, true);
 
 
 --
@@ -1139,7 +1170,7 @@ SELECT pg_catalog.setval('public.binda_choices_selections_id_seq', 3, true);
 -- Name: binda_components_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_components_id_seq', 1, true);
+SELECT pg_catalog.setval('public.binda_components_id_seq', 3, true);
 
 
 --
@@ -1153,14 +1184,14 @@ SELECT pg_catalog.setval('public.binda_dates_id_seq', 1, false);
 -- Name: binda_field_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_field_groups_id_seq', 2, true);
+SELECT pg_catalog.setval('public.binda_field_groups_id_seq', 3, true);
 
 
 --
 -- Name: binda_field_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_field_settings_id_seq', 14, true);
+SELECT pg_catalog.setval('public.binda_field_settings_id_seq', 16, true);
 
 
 --
@@ -1195,7 +1226,7 @@ SELECT pg_catalog.setval('public.binda_relations_id_seq', 1, false);
 -- Name: binda_repeaters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_repeaters_id_seq', 1, true);
+SELECT pg_catalog.setval('public.binda_repeaters_id_seq', 3, true);
 
 
 --
@@ -1216,7 +1247,7 @@ SELECT pg_catalog.setval('public.binda_structures_id_seq', 2, true);
 -- Name: binda_texts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_texts_id_seq', 16, true);
+SELECT pg_catalog.setval('public.binda_texts_id_seq', 36, true);
 
 
 --
