@@ -1,19 +1,23 @@
-<div class="release">
+<article class="release">
    <div class="release__header">
-      <span class="release__header-title"><%= release.get_string("release-catalog-number") %></span>
+      <h2 class="release__header-title"><%= release.get_string("release-catalog-number") %></h2>
    </div>
-   <div class="release__content">
+   <section class="release__content">
       <div class="release__content-header">
-         <p><%= release.get_string("release-artist-name") %></p>
-         <p><%= release[:name] %></p>
-         <p><%= release.get_string("release-publish-date") %></p>
-         <p><%= release.get_string("release-detail") %></p>
+         <div class="release__info">
+            <span class="release__publish-date"><%= release.get_string("release-publish-date") %></span>
+            <span class="release__detail"><%= release.get_string("release-detail") %></span>
+         </div>
+         <div class="release__header">
+            <address class="release__artist"><%= release.get_string("release-artist-name") %></address>
+            <h1 class="release__title"><%= release[:name] %></h1>
+         </div>
       </div>
       <div class="release__tracklist">
          <div class="release__tracklist-inner">
-            <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") }%>
+            <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") } %>
          </div>
       </div>
       <a href=<%= release.get_string("release-url")%>>BUY</a>
-   </div>
-</div>
+   </section>
+</article>
