@@ -31,6 +31,11 @@
     flex-direction: row;
   }
 
+  &__detail,
+  &__publish-date {
+    display: block;
+  }
+
   &__tracklist {
     flex: 1;
     position: relative;
