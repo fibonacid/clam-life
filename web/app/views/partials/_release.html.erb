@@ -22,7 +22,9 @@
          <div class="release__left-column"></div>
          <div class="release__right-column">
             <a class="release__buy-link"href=<%= release.get_string("release-url")%>>BUY</a>
-            <img class="release__image" src="https://picsum.photos/200" />
+            <a href=<%= release.get_string("release-url")%>>
+               <img class="release__image" src="https://picsum.photos/200" />
+            </a>
          </div>
       </div>
    </section>
