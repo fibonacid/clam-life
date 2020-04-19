@@ -31,15 +31,34 @@
     flex-direction: row;
   }
 
+  &__left-column {
+    flex: 0 1 100px;
+  }
+
   &__detail,
   &__publish-date {
     display: block;
+    font-family: $secondary-font;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  &__title,
+  &__artist {
+    font-family: $primary-font;
+    font-size: 14px;
+    letter-spacing: 0.28px;
+  }
+
+  &__title {
+    font-weight: bold;
+    line-height: 1.14;
   }
 
   &__tracklist {
     flex: 1;
     position: relative;
-    background-color: grey;
   }
 
   &__tracklist-inner {
