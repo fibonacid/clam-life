@@ -8,7 +8,7 @@
             <span class="release__publish-date"><%= release.get_string("release-publish-date") %></span>
             <span class="release__detail"><%= release.get_string("release-detail") %></span>
          </div>
-         <div>
+         <div class="release__right-column">
             <address class="release__artist"><%= release.get_string("release-artist-name") %></address>
             <h1 class="release__title"><%= release[:name] %></h1>
          </div>
@@ -18,6 +18,12 @@
             <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") } %>
          </div>
       </div>
-      <a class="release__link"href=<%= release.get_string("release-url")%>>BUY</a>
+      <div class="release__footer">
+         <div class="release__left-column"></div>
+         <div class="release__right-column">
+            <a class="release__link"href=<%= release.get_string("release-url")%>>BUY</a>
+            <img class="release__image" src="https://picsum.photos/200" />
+         </div>
+      </div>
    </section>
 </article>
