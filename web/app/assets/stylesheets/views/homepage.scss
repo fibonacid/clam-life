@@ -1,0 +1,21 @@
+.homepage__wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.releases {
+  &__list {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    border: solid 1px white;
+  }
+}
