@@ -1,4 +1,5 @@
 import { Homepage } from "../components/Homepage";
+import { Header } from "../components/Header";
 
 /**
  * CONTROLLERS
@@ -9,7 +10,9 @@ import { Homepage } from "../components/Homepage";
 const Controllers = {
   // -------------------------- application-wide scripts --------------------------
   application: {
-    init: function() {}
+    init: function() {
+      Header.init();
+    }
   },
   // -------------------------- controller-wide scripts --------------------------
   homepage: {
