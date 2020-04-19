@@ -1,6 +1,6 @@
 <article class="release">
-   <div class="release__header">
-      <h2 class="release__header-title"><%= release.get_string("release-catalog-number") %></h2>
+   <div class="release__top-header">
+      <h2 class="release__catalog-number"><%= release.get_string("release-catalog-number") %></h2>
    </div>
    <section class="release__content">
       <div class="release__content-header">
@@ -18,6 +18,6 @@
             <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") } %>
          </div>
       </div>
-      <a href=<%= release.get_string("release-url")%>>BUY</a>
+      <a class="release__link"href=<%= release.get_string("release-url")%>>BUY</a>
    </section>
 </article>

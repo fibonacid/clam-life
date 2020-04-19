@@ -5,16 +5,15 @@
   width: 360px;
   height: auto;
 
-  &__header {
+  &__top-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-
     padding: 10px 5px;
   }
 
-  &__header-title {
+  &__catalog-number {
     font-family: $primary-font;
     font-size: 10px;
     text-align: left;
@@ -24,6 +23,12 @@
     height: 530px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+  }
+
+  &__content-header {
+    display: flex;
+    flex-direction: row;
   }
 
   &__tracklist {
