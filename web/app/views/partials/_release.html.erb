@@ -10,7 +10,9 @@
          <p><%= release.get_string("release-detail") %></p>
       </div>
       <div class="release__tracklist">
-         <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") }%>
+         <div class="release__tracklist-inner">
+            <%= render partial: "partials/tracklist", locals: { tracklist: release.get_repeater("release-track-list") }%>
+         </div>
       </div>
       <a href=<%= release.get_string("release-url")%>>BUY</a>
    </div>

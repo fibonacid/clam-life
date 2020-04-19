@@ -22,5 +22,24 @@
 
   &__content {
     height: 530px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tracklist {
+    flex: 1;
+    position: relative;
+    background-color: grey;
+  }
+
+  &__tracklist-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
   }
 }
