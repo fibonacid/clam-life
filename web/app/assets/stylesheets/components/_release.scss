@@ -1,8 +1,11 @@
+$release-width: 360px;
+$release-height: 530px;
+
 .release {
   color: $color-black;
   background-color: $color-white;
 
-  width: 360px;
+  width: $release-width;
   height: auto;
 
   &__top-header {
@@ -20,7 +23,7 @@
   }
 
   &__content {
-    height: 530px;
+    height: $release-height;
     display: flex;
     flex-direction: column;
     padding: 10px;
