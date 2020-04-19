@@ -1,7 +1,8 @@
 <ul class="tracklist">
    <% tracklist.each_with_index do |track, index| %>
       <li class="tracklist__item">
-         <span class="track__number"><%= index + 1 %></span>
+         <% number = "%02d" % (index + 1) %>
+         <span class="track__number"><%= number %></span>
          <span class="track__title"><%= track.get_string("release-track-title") %></span>
          <span class="track__duration"><%= track.get_string("release-track-duration") %></span>
       </li>
