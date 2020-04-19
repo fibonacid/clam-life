@@ -1,4 +1,10 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
   padding: 28px 22px 22px 22px;
   display: flex;
   flex-direction: row;
@@ -14,6 +20,7 @@
     text-decoration: none;
     color: $color-black;
     background-color: $color-white;
+    border: solid 1px $color-black;
     display: block;
 
     min-width: 180px;
