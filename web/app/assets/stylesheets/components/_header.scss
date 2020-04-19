@@ -1,8 +1,31 @@
 .header {
   padding: 28px 22px 22px 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
 
   &__logo {
     width: 40px;
     height: auto;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-black;
+    background-color: $color-white;
+    display: block;
+
+    min-width: 180px;
+    padding: 6px 0 4px 4px;
+
+    font-family: $primary-font;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    text-align: left;
+
+    &:not(:first-of-type) {
+      margin-top: 9px;
+    }
   }
 }
