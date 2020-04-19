@@ -20,14 +20,14 @@ definitions:
           # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings.
           - export IMAGE_NAME="${GCR_IMAGE_PREFIX}/${BITBUCKET_REPO_SLUG}"
 
-          # Build the Docker `admin` image.
+          # Build the Docker `web` image.
           # WARNING: we are using remote.Dockerfile which will be used for both staging and production.
           - docker image build
             --tag "${IMAGE_NAME}_web:${BITBUCKET_BRANCH}-${BITBUCKET_COMMIT}"
             --build-arg POSTGRES_PASSWORD_ARG
             --build-arg RAILS_MASTER_KEY_ARG
-            --file ./admin/remote.Dockerfile
-            ./admin
+            --file ./web/remote.Dockerfile
+            ./web
 
           # Tag the image as latest (currently the only way to target the image from the remote server automatically).
           - docker image tag "${IMAGE_NAME}_web:${BITBUCKET_BRANCH}-${BITBUCKET_COMMIT}" "${IMAGE_NAME}_web:${BITBUCKET_BRANCH}"
