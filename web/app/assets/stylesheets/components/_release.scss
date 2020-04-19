@@ -71,4 +71,8 @@
     overflow-x: hidden;
     overflow-wrap: break-word;
   }
+
+  &__footer {
+    display: flex;
+  }
 }
