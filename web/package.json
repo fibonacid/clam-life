@@ -2,7 +2,8 @@
   "name": "myapp",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "5.0.1"
+    "@rails/webpacker": "5.0.1",
+    "imagesloaded": "^4.1.4"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
