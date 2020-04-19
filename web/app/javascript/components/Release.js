@@ -25,20 +25,18 @@ class _Release {
         cover.classList.add("release__cover--hidden");
       });
 
-      // When user clicks outside
-      document.addEventListener("click", function(event) {
-        let targetElement = event.target;
-        do {
-          if (targetElement == cover) {
-            return;
-          }
-          // Go up the DOM
-          targetElement = targetElement.parentNode;
-        } while (targetElement);
+      // Listen for all clicks on the document
+      document.addEventListener(
+        "click",
+        function(event) {
+          // If the click happened inside the container, bail
+          if (event.target.closest(".release")) return;
 
-        // Outside click !
-        cover.classList.remove("release__cover--hidden");
-      });
+          // Otherwise, show the cover
+          cover.classList.remove("release__cover--hidden");
+        },
+        false
+      );
     });
   }
 }

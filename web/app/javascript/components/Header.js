@@ -19,25 +19,19 @@ class _Header {
         showLinks.classList.add("header__show-links--hidden");
       });
 
-      // When user clicks outside
-      document.addEventListener("click", function(event) {
-        let targetElement = event.target;
-        let clickedInside = false;
-        do {
-          if (targetElement == showLinks) {
-            clickedInside = true;
-            return;
-          }
-          // Go up the DOM
-          targetElement = targetElement.parentNode;
-        } while (targetElement);
+      // Listen for all clicks on the document
+      document.addEventListener(
+        "click",
+        function(event) {
+          // If the click happened inside the container, bail
+          if (event.target.closest(".header__show-links")) return;
 
-        // Outside click !
-        if (!clickedInside) {
+          // Otherwise, show the cover
           links.classList.add("header__social--hidden");
           showLinks.classList.remove("header__show-links--hidden");
-        }
-      });
+        },
+        false
+      );
     }
   }
 }
