@@ -33,17 +33,17 @@ class _Release {
       });
 
       // Listen for all clicks on the document
-      document.addEventListener(
-        "click",
-        function(event) {
-          // If the click happened inside the container, bail
-          if (event.target.closest(".release")) return;
+      // document.addEventListener(
+      //   "click",
+      //   function(event) {
+      //     // If the click happened inside the container, bail
+      //     if (event.target.closest(".release")) return;
 
-          // Otherwise, show the cover
-          cover.classList.remove("release__cover--hidden");
-        },
-        false
-      );
+      //     // Otherwise, show the cover
+      //     cover.classList.remove("release__cover--hidden");
+      //   },
+      //   false
+      // );
     });
   }
 }
