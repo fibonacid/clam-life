@@ -16,23 +16,27 @@
     height: auto;
   }
 
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 250px;
+    align-items: baseline;
+    justify-content: end;
+  }
+
   &__link {
     text-decoration: none;
     color: $color-black;
     background-color: $color-white;
     border: solid 1px $color-black;
-    display: block;
 
-    min-width: 180px;
+    display: block;
+    min-width: 100px;
     padding: 6px 0 4px 4px;
 
     font-family: $primary-font;
     font-size: 10px;
     letter-spacing: 0.6px;
     text-align: left;
-
-    &:not(:first-of-type) {
-      margin-top: 9px;
-    }
   }
 }
