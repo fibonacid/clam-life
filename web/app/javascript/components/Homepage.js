@@ -1,3 +1,5 @@
+import imagesLoaded from "imagesloaded";
+
 /**
  * This is the script that provides
  * all the functionality specific to
@@ -9,8 +11,21 @@ class _Homepage {
   }
 
   setupEvents() {
-    console.log("Hello from homepage");
+    // Fade in cover image as soon it's loaded.
+    imagesLoaded(".release__cover-inner", onImageLoaded);
   }
 }
 
 export const Homepage = new _Homepage();
+
+/**
+ * Adds class loaded to every element targeted
+ * by imagesLoaded.
+ * @param {elements} param0
+ */
+function onImageLoaded({ elements }) {
+  [...elements].forEach(el => {
+    const image = el.querySelector("img");
+    image && image.classList.add("loaded");
+  });
+}
