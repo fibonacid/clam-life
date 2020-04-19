@@ -16,12 +16,36 @@
     height: auto;
   }
 
+  &__right-column {
+    flex: 0 1 250px;
+    display: flex;
+    position: relative;
+  }
+
+  &__show-links {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
   &__social {
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 250px;
     align-items: baseline;
     justify-content: end;
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &__link {
