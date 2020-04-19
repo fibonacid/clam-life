@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root 'homepage#show'
+  
+  root 'homepage#intro'
+  
+  get 'home', to: 'homepage#show', as: 'home'
+  
   get 'maintenance', to: 'maintenance#index', as: 'maintenance'
   
   mount Binda::Engine => '/admin_panel'
