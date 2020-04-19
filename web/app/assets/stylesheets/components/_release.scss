@@ -37,6 +37,16 @@ $release-height: 530px;
     left: 0;
     right: 0;
     bottom: 0;
+
+    cursor: pointer;
+    pointer-events: all;
+    opacity: 1;
+    transition: opacity 0.25s;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &__cover-inner {
