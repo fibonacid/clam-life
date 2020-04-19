@@ -3,12 +3,12 @@
       <h2 class="release__catalog-number"><%= release.get_string("release-catalog-number") %></h2>
    </div>
    <section class="release__content">
-      <div class="release__content-header">
-         <div class="release__info">
+      <div class="release__header">
+         <div>
             <span class="release__publish-date"><%= release.get_string("release-publish-date") %></span>
             <span class="release__detail"><%= release.get_string("release-detail") %></span>
          </div>
-         <div class="release__header">
+         <div>
             <address class="release__artist"><%= release.get_string("release-artist-name") %></address>
             <h1 class="release__title"><%= release[:name] %></h1>
          </div>
