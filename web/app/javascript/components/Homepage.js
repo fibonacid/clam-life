@@ -1,4 +1,4 @@
-import imagesLoaded from "imagesloaded";
+import { Release } from "./Release";
 
 /**
  * This is the script that provides
@@ -7,25 +7,8 @@ import imagesLoaded from "imagesloaded";
  */
 class _Homepage {
   init() {
-    this.setupEvents();
-  }
-
-  setupEvents() {
-    // Fade in cover image as soon it's loaded.
-    imagesLoaded(".release__cover-inner", onImageLoaded);
+    Release.init();
   }
 }
 
 export const Homepage = new _Homepage();
-
-/**
- * Adds class loaded to every element targeted
- * by imagesLoaded.
- * @param {elements} param0
- */
-function onImageLoaded({ elements }) {
-  [...elements].forEach(el => {
-    const image = el.querySelector("img");
-    image && image.classList.add("loaded");
-  });
-}

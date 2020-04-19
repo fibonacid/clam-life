@@ -1,0 +1,31 @@
+import imagesLoaded from "imagesloaded";
+
+/**
+ * This is the script that provides
+ * all the functionality specific to
+ * the homepage of the site.
+ */
+class _Release {
+  init() {
+    this.setupEvents();
+  }
+
+  setupEvents() {
+    // Fade in cover image as soon it's loaded.
+    imagesLoaded(".release__cover-inner", onImageLoaded);
+  }
+}
+
+export const Release = new _Release();
+
+/**
+ * Adds class loaded to every element targeted
+ * by imagesLoaded.
+ * @param {elements} param0
+ */
+function onImageLoaded({ elements }) {
+  [...elements].forEach(el => {
+    const image = el.querySelector("img");
+    image && image.classList.add("loaded");
+  });
+}
