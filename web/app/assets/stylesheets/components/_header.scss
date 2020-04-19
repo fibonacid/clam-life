@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   z-index: 2;
+  pointer-events: none;
 
   padding: 28px 22px 22px 22px;
   display: flex;
@@ -14,6 +15,7 @@
   &__logo {
     width: 40px;
     height: auto;
+    pointer-events: all;
   }
 
   &__right-column {
@@ -30,6 +32,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    pointer-events: all;
 
     &--hidden {
       display: none;
@@ -37,6 +40,7 @@
   }
 
   &__social {
+    pointer-events: all;
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 250px;
