@@ -18,11 +18,18 @@ class _Release {
 
     [...containers].forEach(function(container) {
       const cover = container.querySelector(".release__cover");
+      const header = container.querySelector(".release__top-header");
 
       // When user clicks on the cover:
       cover.addEventListener("click", function() {
         // Hide the cover.
         cover.classList.add("release__cover--hidden");
+      });
+
+      // When user clicks on the header:
+      header.addEventListener("click", function() {
+        // Toggle the cover.
+        cover.classList.toggle("release__cover--hidden");
       });
 
       // Listen for all clicks on the document
