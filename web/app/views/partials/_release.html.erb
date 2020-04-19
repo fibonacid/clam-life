@@ -1,0 +1,22 @@
+<div class="release">
+   <div class="release__header">
+      <span class="release__header-title"><%= release.get_string("release-catalog-number") %></span>
+   </div>
+   <div class="release__content">
+      <p><%= release.get_string("release-artist-name") %></p>
+      <p><%= release[:name] %></p>
+      <p><%= release.get_string("release-publish-date") %></p>
+      <p><%= release.get_string("release-detail") %></p>
+      <a href=<%= release.get_string("release-url")%>>BUY</a>
+      <ul>
+         <% track_list = release.get_repeater("release-track-list") %>
+         <% track_list.each_with_index do |track, index| %>
+            <li>
+               <span><%= index + 1 %></span>
+               <span><%= track.get_string("release-track-title") %></span>
+               <span><%= track.get_string("release-track-duration") %></span>
+            </li>
+         <% end %>
+      </ul>
+   </div>
+</div>
