@@ -126,12 +126,19 @@ $release-height: 530px;
   }
 
   &__buy-link {
-    color: $color-black;
-    text-decoration: none;
     display: inline-block;
-
     padding: 5px 10px;
-    border: solid 1px $color-black;
+
+    text-decoration: none;
+    border: solid 1px;
+
+    color: $color-black;
+    border-color: $color-black;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-black;
+    }
 
     font-family: $primary-font;
     font-size: 10px;
