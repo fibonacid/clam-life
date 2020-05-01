@@ -30,13 +30,15 @@
          <div class="release__footer">
             <div class="release__left-column"></div>
             <div class="release__right-column">
-               <a class="release__buy-link"href=<%= release.get_string("release-url")%>>BUY</a>
-               <% if release.has_image("release-image") %>
-                  <% image_url = release.get_image_url("release-image") %>
-                  <a href=<%= release.get_string("release-url")%>>
-                     <%= image_tag(image_url, class: "release__image")%>
-                  </a>
-               <% end %>
+               <div class="release__footer-inner">
+                  <a class="release__buy-link"href=<%= release.get_string("release-url")%>>BUY</a>
+                  <% if release.has_image("release-image") %>
+                     <% image_url = release.get_image_url("release-image") %>
+                     <a href=<%= release.get_string("release-url")%>>
+                        <%= image_tag(image_url, class: "release__image")%>
+                     </a>
+                  <% end %>
+               </div>
             </div>
          </div>
       </section>
