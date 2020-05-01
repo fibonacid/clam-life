@@ -1,156 +1,27 @@
-$release-width: 360px;
-$release-height: 530px;
-
 .release {
   color: $color-black;
   background-color: $color-white;
 
-  width: $release-width;
-  height: auto;
-  margin: 5px;
+  width: 100%;
 
-  &__top-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    padding: 10px 5px;
-    cursor: pointer;
+  &__cover {
+    width: 100%;
+    height: 0;
+    padding-bottom: 150%;
+    background: yellow;
+    position: relative;
   }
 
-  &__catalog-number {
-    font-family: $primary-font;
-    font-size: 10px;
-    text-align: left;
+  &__cover-image {
+    display: none;
   }
 
   &__content {
-    position: relative;
-    height: $release-height;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  &__cover {
     position: absolute;
-    z-index: 1;
-    top: 0;
+    top: 16px;
     left: 0;
     right: 0;
     bottom: 0;
-
-    cursor: pointer;
-    pointer-events: all;
-    opacity: 1;
-    transition: opacity 0.25s;
-
-    &--hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
-
-  &__cover-inner {
-    display: block;
-    position: relative;
-    height: 0;
-    padding-bottom: 153.3%;
-
-    background: $color-black;
-    border-top: solid 1px $color-black;
-
-    & img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.25s;
-
-      &.loaded {
-        opacity: 1;
-      }
-    }
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__left-column {
-    flex: 0 1 100px;
-  }
-
-  &__detail,
-  &__publish-date {
-    display: block;
-    font-family: $secondary-font;
-    font-size: 10px;
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  &__title,
-  &__artist {
-    font-family: $primary-font;
-    font-size: 14px;
-    letter-spacing: 0.28px;
-  }
-
-  &__title {
-    font-weight: bold;
-    line-height: 1.14;
-  }
-
-  &__tracklist {
-    flex: 1;
-    position: relative;
-  }
-
-  &__tracklist-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-  }
-
-  &__footer {
-    display: flex;
-  }
-
-  &__buy-link {
-    display: inline-block;
-    padding: 5px 10px;
-
-    text-decoration: none;
-    border: solid 1px;
-
-    color: $color-black;
-    border-color: $color-black;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-black;
-    }
-
-    font-family: $primary-font;
-    font-size: 10px;
-    line-height: 1;
-    letter-spacing: 0.18px;
-
-    margin-bottom: 10px;
-  }
-
-  &__image {
-    --size: 200px;
-    width: var(--size);
-    height: var(--size);
+    overflow: auto;
   }
 }
