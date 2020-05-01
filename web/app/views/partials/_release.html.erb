@@ -6,7 +6,9 @@
       <% if release.has_image("release-cover-image") %>
          <% image_url = release.get_image_url("release-cover-image") %>
          <div class="release__cover" >
-            <%= image_tag(image_url, class: "release__cover-image") %>
+            <div class="release__cover-inner">
+               <%= image_tag(image_url, class: "release__cover-image") %>
+            </div>
          </div>
       <% end %>
       <section class="release__content">

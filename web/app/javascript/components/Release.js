@@ -17,19 +17,19 @@ class _Release {
     const containers = document.querySelectorAll(".release");
 
     [...containers].forEach(function(container) {
-      const cover = container.querySelector(".release__cover");
+      const coverInner = container.querySelector(".release__cover-inner");
       const header = container.querySelector(".release__top-header");
 
       // When user clicks on the cover:
-      cover.addEventListener("click", function() {
+      coverInner.addEventListener("click", function() {
         // Hide the cover.
-        cover.classList.add("release__cover--hidden");
+        coverInner.classList.add("release__cover-inner--hidden");
       });
 
       // When user clicks on the header:
       header.addEventListener("click", function() {
         // Toggle the cover.
-        cover.classList.toggle("release__cover--hidden");
+        coverInner.classList.toggle("release__cover-inner--hidden");
       });
 
       // Listen for all clicks on the document

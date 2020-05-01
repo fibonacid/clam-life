@@ -12,12 +12,33 @@
     width: 100%;
     height: 0;
     padding-bottom: 150%;
-    background: yellow;
     position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  &__cover-inner {
+    cursor: pointer;
+    pointer-events: all;
+    transition: opacity 0.25s;
+    opacity: 1;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &__cover-image {
-    display: none;
+    position: absolute;
+    height: 100%;
+    width: auto;
+
+    opacity: 0;
+    transition: opacity 0.25s;
+    &.loaded {
+      opacity: 1;
+    }
   }
 
   &__content {
