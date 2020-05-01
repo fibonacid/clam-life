@@ -3,21 +3,21 @@ $primary-font: "SuisseIntl", sans-serif;
 
 @font-face {
   font-family: "SuisseIntl";
-  src: url("/assets/fonts/Suisse-Intl/SuisseIntl-Regular.otf");
+  src: url(font-path("SuisseIntl-Regular.otf"));
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "FoundersGroteskMono";
-  src: url("/assets/fonts/FoundersGroteskMono/FoundersGroteskMonoRegular.otf");
+  src: url(font-path("FoundersGroteskMonoRegular.otf"));
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "FoundersGroteskMono";
-  src: url("/assets/fonts/FoundersGroteskMono/FoundersGroteskMonoBold.otf");
+  src: url(font-path("FoundersGroteskMonoBold.otf"));
   font-weight: 500;
   font-style: normal;
 }
