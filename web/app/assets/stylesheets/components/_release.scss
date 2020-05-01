@@ -27,6 +27,13 @@
   }
 
   &__cover-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color-black;
+
     cursor: pointer;
     pointer-events: all;
     transition: opacity 0.25s;
@@ -39,7 +46,6 @@
   }
 
   &__cover-image {
-    position: absolute;
     height: 100%;
     width: auto;
 
