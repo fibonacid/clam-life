@@ -20,6 +20,11 @@ class _Release {
       const coverInner = container.querySelector(".release__cover-inner");
       const header = container.querySelector(".release__top-header");
 
+      if (!coverInner || !header) {
+        console.error("Release is missing some elements");
+        return;
+      }
+
       // When user clicks on the cover:
       coverInner.addEventListener("click", function() {
         // Hide the cover.
