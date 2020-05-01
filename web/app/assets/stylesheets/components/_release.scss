@@ -4,6 +4,15 @@
 
   width: 100%;
 
+  &__top-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px 5px;
+    cursor: pointer;
+  }
+
   &__container {
     position: relative;
   }
@@ -48,5 +57,99 @@
     right: 0;
     bottom: 0;
     overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  &__catalog-number {
+    font-family: $primary-font;
+    font-size: 10px;
+    text-align: left;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__left-column {
+    flex: 0 1 100px;
+  }
+
+  &__detail,
+  &__publish-date {
+    display: block;
+    font-family: $secondary-font;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  &__title,
+  &__artist {
+    font-family: $primary-font;
+    font-size: 14px;
+    letter-spacing: 0.28px;
+  }
+
+  &__title {
+    font-weight: bold;
+    line-height: 1.14;
+  }
+
+  &__tracklist {
+    flex: 1;
+    position: relative;
+  }
+
+  &__tracklist-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+
+  &__footer {
+    display: flex;
+  }
+
+  &__footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__buy-link {
+    display: inline-block;
+    padding: 5px 10px;
+
+    text-decoration: none;
+    border: solid 1px;
+
+    color: $color-black;
+    border-color: $color-black;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-black;
+    }
+
+    font-family: $primary-font;
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.18px;
+
+    margin-bottom: 10px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
   }
 }
