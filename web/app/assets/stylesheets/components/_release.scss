@@ -50,7 +50,7 @@
 
   &__cover-image {
     height: 100%;
-    width: auto;
+    position: absolute;
 
     opacity: 0;
     transition: opacity 0.25s;
