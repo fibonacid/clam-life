@@ -19,7 +19,32 @@
   }
 
   &__item {
-    flex: 0 1 30%;
     position: relative;
+
+    @include mobile {
+      flex: 0 1 100%;
+      &:not(:first-of-type) {
+        margin-top: 70px;
+      }
+    }
+
+    @include tablet {
+      flex: 0 1 calc(50% - 10px);
+      // All but first two
+      &:nth-child(n + 3) {
+        margin-top: 35px;
+      }
+    }
+
+    @include desktop {
+      flex: 0 1 calc(30% - 10px);
+      &:nth-child(-n + 4) {
+        margin-top: 0;
+      }
+      // All but first three
+      &:nth-child(n + 4) {
+        margin-top: 35px;
+      }
+    }
   }
 }
