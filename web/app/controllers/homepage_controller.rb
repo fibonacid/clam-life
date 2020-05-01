@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   def show
     chaotic_releases = B.get_components("release").includes(repeaters: [:texts, :images])
-    @releases = chaotic_releases.sort { |a, b| getReleaseDate(b) <=> getReleaseDate(a) }
+    @releases = chaotic_releases.sort { |a, b| getReleaseDate(a) <=> getReleaseDate(b) }
   end
 
   def intro
