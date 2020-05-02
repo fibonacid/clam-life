@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
 
   def set_variables
     @dashboard = B.get_boards('dashboard').includes(:images).first;
+    @contacts = B.get_boards('contacts').first;
   end
 end
