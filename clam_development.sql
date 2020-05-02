@@ -908,6 +908,7 @@ COPY public.binda_assets (id, type, video, image, audio, svg, field_setting_id, 
 2	Binda::Image	\N	CLAM_Website_IMG_3.jpg	\N	\N	15	Binda::Component	1	image/jpeg	119930	423	629	2020-04-19 16:57:29.038311	2020-04-19 17:32:02.358126
 7	Binda::Image	\N	CLAM_Website_IMG_Product3.jpg	\N	\N	16	Binda::Component	3	image/jpeg	44417	271	271	2020-04-19 17:32:26.450868	2020-04-19 17:33:28.326261
 6	Binda::Image	\N	CLAM_Website_IMG_2.jpg	\N	\N	15	Binda::Component	3	image/jpeg	222795	423	629	2020-04-19 17:32:26.424884	2020-04-19 17:33:28.436079
+8	Binda::Image	\N	Clam_Web_OG_Image_1200x630px-01.png	\N	\N	17	Binda::Board	1	image/png	18122	1200	630	2020-05-02 14:28:39.330889	2020-05-02 14:38:40.281439
 \.
 
 
@@ -917,6 +918,7 @@ COPY public.binda_assets (id, type, video, image, audio, svg, field_setting_id, 
 
 COPY public.binda_boards (id, name, slug, "position", structure_id) FROM stdin;
 1	dashboard	dashboard	\N	1
+3	Contacts	contacts	\N	4
 \.
 
 
@@ -979,9 +981,11 @@ COPY public.binda_dates (id, date, field_setting_id, fieldable_type, fieldable_i
 --
 
 COPY public.binda_field_groups (id, name, slug, description, "position", layout, structure_id, created_at, updated_at) FROM stdin;
-1	General details	dashboard-general-details	\N	2	\N	1	2020-04-18 13:17:15.451686	2020-04-18 13:17:15.603812
 2	General details	release-general-details		1	\N	2	2020-04-18 13:27:18.952942	2020-04-19 16:56:40.88075
 3	Media	release-media		2	\N	2	2020-04-19 16:56:40.767021	2020-04-19 16:56:52.039818
+1	General details	dashboard-general-details		1	\N	1	2020-04-18 13:17:15.451686	2020-05-02 15:50:29.757717
+6	General details	contacts-general-details		1	\N	4	2020-05-02 15:56:06.800716	2020-05-02 15:57:20.212239
+7	Social	contacts-social		2	\N	4	2020-05-02 15:56:57.05011	2020-05-02 15:57:20.220133
 \.
 
 
@@ -990,9 +994,14 @@ COPY public.binda_field_groups (id, name, slug, description, "position", layout,
 --
 
 COPY public.binda_field_settings (id, name, slug, description, "position", required, read_only, default_text, field_type, field_group_id, ancestry, allow_null, default_choice_id, created_at, updated_at) FROM stdin;
-1	Maintenance Mode	maintenance-mode	\N	4	f	f	\N	radio	1	\N	f	2	2020-04-18 13:19:19.565286	2020-04-18 13:19:29.328627
-2	Website Name	website-name	\N	4	f	f	\N	string	1	\N	t	\N	2020-04-18 13:19:22.115293	2020-04-18 13:19:29.695434
-3	Website Description	website-description	\N	4	f	f	\N	text	1	\N	t	\N	2020-04-18 13:19:29.295841	2020-04-18 13:19:30.591058
+25	Facebook	contacts-facebook		4	f	f	\N	string	7	\N	t	\N	2020-05-02 15:58:28.889496	2020-05-02 16:00:07.358808
+27	Bandcamp	contacts-bandcamp		2	f	f	\N	string	7	\N	t	\N	2020-05-02 15:59:25.225506	2020-05-02 16:00:08.260156
+28	SoundCloud	contacts-soundcloud		1	f	f	\N	string	7	\N	t	\N	2020-05-02 16:00:07.327692	2020-05-02 16:00:40.942318
+1	Maintenance Mode	maintenance-mode		1	f	f	\N	radio	1	\N	f	2	2020-04-18 13:19:19.565286	2020-05-02 14:30:28.332563
+26	Instagram	contacts-instagram		3	f	f	\N	string	7	\N	t	\N	2020-05-02 15:59:07.485942	2020-05-02 16:21:08.159968
+3	Website Description	website-description		2	f	f	\N	text	1	\N	t	\N	2020-04-18 13:19:29.295841	2020-05-02 14:30:28.739471
+2	Website Name	website-name		3	f	f	\N	string	1	\N	t	\N	2020-04-18 13:19:22.115293	2020-05-02 14:30:29.168502
+17	Website Image	website-image		4	f	f	\N	image	1	\N	t	\N	2020-05-02 14:28:18.500048	2020-05-02 14:30:29.614734
 4	Catalog Number	release-catalog-number		1	f	f	\N	string	2	\N	t	\N	2020-04-18 13:27:36.797018	2020-04-18 13:50:16.390109
 5	Artist Name	release-artist-name		2	f	f	\N	string	2	\N	t	\N	2020-04-18 13:31:06.285284	2020-04-18 13:50:16.814483
 7	Publish Date	release-publish-date	Date of pubblication of the release.<br />Follow this pattern DD/MM/YYYY	3	f	f	\N	string	2	\N	t	\N	2020-04-18 13:35:00.896748	2020-04-18 13:50:17.24796
@@ -1003,6 +1012,7 @@ COPY public.binda_field_settings (id, name, slug, description, "position", requi
 16	Image	release-image	The image should have the following dimensions:<br /><br />Width: 200px<br />Height: 200px	2	f	f	\N	image	3	\N	t	\N	2020-04-19 16:57:32.920196	2020-04-19 17:02:09.745134
 13	Duration	release-track-duration	Duration of the track.<br /><br />HOURS:MINUTES:SECONDS	3	f	f	\N	string	2	9	t	\N	2020-04-18 13:45:41.083881	2020-04-18 13:48:50.706355
 10	Title	release-track-title		1	f	f	\N	string	2	9	t	\N	2020-04-18 13:42:38.172338	2020-04-18 13:49:49.683518
+24	Email	contacts-email	\N	1	f	f	\N	string	6	\N	t	\N	2020-05-02 15:57:46.662103	2020-05-02 15:58:15.484005
 \.
 
 
@@ -1063,8 +1073,9 @@ COPY public.binda_selections (id, field_setting_id, fieldable_type, fieldable_id
 --
 
 COPY public.binda_structures (id, name, slug, "position", has_categories, has_preview, instance_type, created_at, updated_at) FROM stdin;
-1	dashboard	dashboard	2	f	f	board	2020-04-18 13:17:15.120012	2020-04-18 13:27:19.181178
-2	Release	release	1	f	f	component	2020-04-18 13:27:18.89665	2020-04-18 13:38:54.58903
+1	dashboard	dashboard	4	f	f	board	2020-04-18 13:17:15.120012	2020-05-02 15:56:06.972947
+2	Release	release	3	f	f	component	2020-04-18 13:27:18.89665	2020-05-02 15:56:07.221566
+4	Contacts	contacts	1	f	f	board	2020-05-02 15:56:06.773845	2020-05-02 15:56:07.25976
 \.
 
 
@@ -1073,7 +1084,6 @@ COPY public.binda_structures (id, name, slug, "position", has_categories, has_pr
 --
 
 COPY public.binda_texts (id, content, "position", field_setting_id, fieldable_type, fieldable_id, type, created_at, updated_at) FROM stdin;
-1	Clam\n	\N	2	Binda::Board	1	Binda::String	2020-04-18 13:19:22.806128	2020-04-18 13:19:29.244541
 2	A website about the world	\N	3	Binda::Board	1	\N	2020-04-18 13:19:30.403628	2020-04-18 13:19:39.033091
 6	12/10/2019	\N	7	Binda::Component	1	Binda::String	2020-04-18 13:35:02.240705	2020-04-18 13:38:15.987597
 13	https://bandcamp.com	\N	14	Binda::Component	1	Binda::String	2020-04-18 13:50:16.363056	2020-04-18 14:14:32.271292
@@ -1102,6 +1112,12 @@ COPY public.binda_texts (id, content, "position", field_setting_id, fieldable_ty
 28	CLAM002	\N	4	Binda::Component	3	Binda::String	2020-04-19 17:32:26.045117	2020-04-19 17:33:28.318036
 34		\N	10	Binda::Repeater	3	Binda::String	2020-04-19 17:32:26.378772	2020-04-19 17:33:28.576443
 33		\N	13	Binda::Repeater	3	Binda::String	2020-04-19 17:32:26.346739	2020-04-19 17:33:28.591754
+1	Clam	\N	2	Binda::Board	1	Binda::String	2020-04-18 13:19:22.806128	2020-05-02 14:38:40.264588
+44		\N	24	Binda::Board	3	Binda::String	2020-05-02 15:57:47.100555	2020-05-02 16:01:16.481438
+45	https://facebook.com/hello	\N	25	Binda::Board	3	Binda::String	2020-05-02 15:58:29.354076	2020-05-02 16:24:27.154259
+46	https://instagram.com/hello	\N	26	Binda::Board	3	Binda::String	2020-05-02 15:59:08.567001	2020-05-02 16:24:27.176831
+47	https://bandcamp.com/hello	\N	27	Binda::Board	3	Binda::String	2020-05-02 15:59:26.132687	2020-05-02 16:24:27.184653
+48	https://soundcloud.com/hello	\N	28	Binda::Board	3	Binda::String	2020-05-02 16:00:09.266038	2020-05-02 16:24:27.194727
 \.
 
 
@@ -1110,7 +1126,7 @@ COPY public.binda_texts (id, content, "position", field_setting_id, fieldable_ty
 --
 
 COPY public.binda_users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token, confirmed_at, confirmation_sent_at, unconfirmed_email, failed_attempts, unlock_token, locked_at, is_superadmin, created_at, updated_at) FROM stdin;
-1	lorenzorivosecchi3@gmail.com	$2a$11$lUvcvAyMYieGxXE1sdsxUexwMugZZdrzFnqwLqw/HbHS/abrJGNja	\N	\N	\N	2	2020-04-19 16:55:58.221136	2020-04-18 13:25:07.764493	172.18.0.1	172.26.0.1	\N	\N	\N	\N	0	\N	\N	t	2020-04-18 13:19:19.36396	2020-04-19 16:55:58.242311
+1	lorenzorivosecchi3@gmail.com	$2a$11$lUvcvAyMYieGxXE1sdsxUexwMugZZdrzFnqwLqw/HbHS/abrJGNja	\N	\N	\N	3	2020-05-02 14:27:33.9583	2020-04-19 16:55:58.221136	172.18.0.1	172.18.0.1	\N	\N	\N	\N	0	\N	\N	t	2020-04-18 13:19:19.36396	2020-05-02 14:27:33.969939
 \.
 
 
@@ -1135,14 +1151,14 @@ COPY public.schema_migrations (version) FROM stdin;
 -- Name: binda_assets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_assets_id_seq', 7, true);
+SELECT pg_catalog.setval('public.binda_assets_id_seq', 8, true);
 
 
 --
 -- Name: binda_boards_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_boards_id_seq', 1, true);
+SELECT pg_catalog.setval('public.binda_boards_id_seq', 3, true);
 
 
 --
@@ -1184,14 +1200,14 @@ SELECT pg_catalog.setval('public.binda_dates_id_seq', 1, false);
 -- Name: binda_field_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_field_groups_id_seq', 3, true);
+SELECT pg_catalog.setval('public.binda_field_groups_id_seq', 7, true);
 
 
 --
 -- Name: binda_field_settings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_field_settings_id_seq', 16, true);
+SELECT pg_catalog.setval('public.binda_field_settings_id_seq', 28, true);
 
 
 --
@@ -1226,7 +1242,7 @@ SELECT pg_catalog.setval('public.binda_relations_id_seq', 1, false);
 -- Name: binda_repeaters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_repeaters_id_seq', 3, true);
+SELECT pg_catalog.setval('public.binda_repeaters_id_seq', 5, true);
 
 
 --
@@ -1240,14 +1256,14 @@ SELECT pg_catalog.setval('public.binda_selections_id_seq', 1, true);
 -- Name: binda_structures_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_structures_id_seq', 2, true);
+SELECT pg_catalog.setval('public.binda_structures_id_seq', 4, true);
 
 
 --
 -- Name: binda_texts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.binda_texts_id_seq', 36, true);
+SELECT pg_catalog.setval('public.binda_texts_id_seq', 48, true);
 
 
 --
