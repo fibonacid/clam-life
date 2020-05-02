@@ -81,6 +81,11 @@
   &__arrow {
     width: 10px;
     height: auto;
+
+    transition: transform 0.25s;
+    &--open {
+      transform: rotate(180deg);
+    }
   }
 
   &__header {

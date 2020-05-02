@@ -19,23 +19,35 @@ class _Release {
     [...containers].forEach(function(container) {
       const coverInner = container.querySelector(".release__cover-inner");
       const header = container.querySelector(".release__top-header");
+      const arrow = container.querySelector(".release__arrow");
 
-      if (!coverInner || !header) {
+      if (!coverInner || !header || !arrow) {
         console.error("Release is missing some elements");
-        return;
       }
 
       // When user clicks on the cover:
-      coverInner.addEventListener("click", function() {
-        // Hide the cover.
-        coverInner.classList.add("release__cover-inner--hidden");
-      });
+      if (coverInner) {
+        coverInner.addEventListener("click", function() {
+          // Hide the cover.
+          coverInner.classList.add("release__cover-inner--hidden");
+          // Rotate the arrow
+          if (arrow) {
+            arrow.classList.add("release__arrow--open");
+          }
+        });
+      }
 
       // When user clicks on the header:
-      header.addEventListener("click", function() {
-        // Toggle the cover.
-        coverInner.classList.toggle("release__cover-inner--hidden");
-      });
+      if (header) {
+        header.addEventListener("click", function() {
+          // Toggle the cover.
+          coverInner.classList.toggle("release__cover-inner--hidden");
+          // Rotate the arrow
+          if (arrow) {
+            arrow.classList.toggle("release__arrow--open");
+          }
+        });
+      }
 
       // Listen for all clicks on the document
       // document.addEventListener(
