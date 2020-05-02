@@ -1,3 +1,5 @@
+$animation-duration: 0.3s;
+
 .release {
   color: $color-black;
   background-color: $color-white;
@@ -34,12 +36,12 @@
     right: 0;
     bottom: 0;
 
-    background: $color-black;
+    background: $color-white;
     border-top: solid 1px $color-black;
 
     cursor: pointer;
     pointer-events: all;
-    transition: opacity 0.25s;
+    transition: opacity $animation-duration;
     opacity: 1;
 
     &--hidden {
@@ -53,7 +55,7 @@
     position: absolute;
 
     opacity: 0;
-    transition: opacity 0.25s;
+    transition: opacity $animation-duration;
     &.loaded {
       opacity: 1;
     }
@@ -82,7 +84,7 @@
     width: 10px;
     height: auto;
 
-    transition: transform 0.25s;
+    transition: transform $animation-duration;
     &--open {
       transform: rotate(180deg);
     }
