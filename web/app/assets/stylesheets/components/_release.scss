@@ -78,6 +78,11 @@
     text-align: left;
   }
 
+  &__arrow {
+    width: 10px;
+    height: auto;
+  }
+
   &__header {
     display: flex;
     flex-direction: row;

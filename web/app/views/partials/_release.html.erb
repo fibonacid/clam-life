@@ -1,6 +1,7 @@
 <article class="release">
    <div class="release__top-header">
       <h2 class="release__catalog-number"><%= release.get_string("release-catalog-number") %></h2>
+     <%= image_tag("arrow-down.svg", class: "release__arrow") %>
    </div>
    <div class="release__container">
       <% if release.has_image("release-cover-image") %>
