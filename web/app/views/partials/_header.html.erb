@@ -3,12 +3,20 @@
       <%= image_tag("logo.svg", class: "header__logo") %>
    </a>
    <div class="header__right-column">
-      <%= image_tag("eye.svg", class: "header__show-links") %>
-      <div class="header__social header__social--hidden">
-         <a class="header__link" href="https://bandcamp.com" target="__blank">BANDCAMP</a>
-         <a class="header__link" href="https://soundcloud.com" target="__blank">SOUNDCLOUD</a>
-         <a class="header__link" href="https://instagram.com" target="__blank">INSTAGRAM</a>
-         <a class="header__link" href="https://facebook.com" target="__blank">FACEBOOK</a>
-      </div>
+      <% if @contacts then %>
+         <%= image_tag("eye.svg", class: "header__show-links") %>
+
+         <% bandcamp = @contacts.get_string("contacts-bandcamp"); %>
+         <% soundcloud = @contacts.get_string("contacts-soundcloud"); %>
+         <% instagram = @contacts.get_string("contacts-instagram"); %>
+         <% facebook = @contacts.get_string("contacts-facebook"); %>
+      
+         <div class="header__social header__social--hidden">
+            <a class="header__link" href="<%=bandcamp%>" target="__blank">BANDCAMP</a>
+            <a class="header__link" href="<%=soundcloud%>" target="__blank">SOUNDCLOUD</a>
+            <a class="header__link" href=""<%=instagram%>" target="__blank">INSTAGRAM</a>
+            <a class="header__link" href="<%=facebook%>" target="__blank">FACEBOOK</a>
+         </div>
+      <% end %>
    </div>
 </header>
