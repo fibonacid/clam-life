@@ -1,0 +1,4 @@
+
+    <% content_for :meta_title, @dashboard.get_string("website-name") || DEFAULT_META["meta_title"] %>
+    <% content_for :meta_description, @dashboard.get_text("website-description") || DEFAULT_META["meta_description"] %>
+    <% content_for :meta_image, @dashboard.get_image_url("website-image") || DEFAULT_META["meta_image"] %>
