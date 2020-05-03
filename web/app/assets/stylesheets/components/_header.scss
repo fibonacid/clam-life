@@ -6,16 +6,27 @@
   z-index: 3;
   pointer-events: none;
 
-  padding: 28px 22px 22px 22px;
+  margin: 10px;
+  @include tablet {
+    margin: 30px 20px;
+  }
+  @include desktop {
+    margin: 30px;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: flex-start;
 
+  /* Make header always visible, regardless of the background */
+  mix-blend-mode: difference;
+
   &__logo {
-    width: 40px;
+    width: 130px;
     height: auto;
     pointer-events: all;
+    margin-right: 15px;
   }
 
   &__right-column {

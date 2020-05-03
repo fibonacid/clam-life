@@ -1,10 +1,10 @@
 <header class="header">
    <a href="<%= root_path() %>">
-      <%= image_tag("logo.svg", class: "header__logo") %>
+      <%= image_tag("full-logo.svg", class: "header__logo") %>
    </a>
    <div class="header__right-column">
       <% if @contacts then %>
-         <%= image_tag("eye.svg", class: "header__show-links") %>
+         <%= image_tag("logo.svg", class: "header__show-links") %>
 
          <% bandcamp = @contacts.get_string("contacts-bandcamp"); %>
          <% soundcloud = @contacts.get_string("contacts-soundcloud"); %>
