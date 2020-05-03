@@ -1,9 +1,12 @@
 .tracklist {
-  padding: 10px 0;
   &__item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    &:not(:first-of-type) {
+      margin-top: 0.5em;
+    }
   }
 }
 
