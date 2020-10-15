@@ -29,8 +29,8 @@ services:
         # Restrict access with basic auth
         #   To create user:password pair, it's possible to use this command:
         #   echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g
-        - "traefik.http.middlewares.clam-production-auth.basicauth.users=cl20:$$apr1$$62oHG6o0$$0kR0X0dxMbAmUmcKNLrUF."
-        - "traefik.http.routers.clam_production_web-secure.middlewares=clam-production-auth"
+        # - "traefik.http.middlewares.clam-production-auth.basicauth.users=cl20:$$apr1$$62oHG6o0$$0kR0X0dxMbAmUmcKNLrUF."
+        # - "traefik.http.routers.clam_production_web-secure.middlewares=clam-production-auth"
         # Specify the port to use for communication
         - "traefik.http.services.clam_production_web.loadbalancer.server.port=3000"
     networks:
