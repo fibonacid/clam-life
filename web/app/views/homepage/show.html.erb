@@ -9,10 +9,5 @@
             <%= render partial: "partials/release", locals: { release: release } %>
          </li>
       <% end %>
-
-      <% required_fillers = @releases.length % 3 %>
-      <% for i in 0..required_fillers %>
-         <li class="releases__item--ghost"></li>
-      <% end %>
    </ul>
 </div>
