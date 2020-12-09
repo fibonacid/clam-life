@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-.releases_list {
+.releases__list {
   flex: 1;
 
   margin: 70px 10px 20px 10px;
@@ -21,7 +21,7 @@
   justify-content: space-between;
 }
 
-.releases_item {
+.releases__item {
   position: relative;
 
   @include mobile {
