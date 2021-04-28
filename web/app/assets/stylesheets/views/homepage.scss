@@ -27,14 +27,4 @@
 
 .releases__item {
   position: relative;
-
-  &:last-of-type {
-    margin-bottom: 70px;
-  }
-
-  @include tablet {
-    &:last-of-type {
-      margin-bottom: 35px;
-    }
-  }
 }
