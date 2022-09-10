@@ -78,7 +78,7 @@ export default function Release(props: Props) {
       <div class="release__top-header" onClick={toggleOpen}>
         <h2 class="release__catalog-number">{catalogNumber}</h2>
         <img
-          class={join("release__arrow", open() && "release_arrow--open")}
+          class={join("release__arrow", open() && "release__arrow--open")}
           src={arrowDown}
         />
       </div>
