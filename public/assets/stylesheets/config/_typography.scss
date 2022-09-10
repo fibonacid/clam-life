@@ -1,0 +1,23 @@
+$secondary-font: "FoundersGroteskMono", sans-serif;
+$primary-font: "SuisseIntl", sans-serif;
+
+@font-face {
+  font-family: "SuisseIntl";
+  src: url(font-path("SuisseIntl-Regular.otf"));
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FoundersGroteskMono";
+  src: url(font-path("FoundersGroteskMonoRegular.otf"));
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FoundersGroteskMono";
+  src: url(font-path("FoundersGroteskMonoBold.otf"));
+  font-weight: 500;
+  font-style: normal;
+}

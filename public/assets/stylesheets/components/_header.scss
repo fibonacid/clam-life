@@ -1,0 +1,107 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  margin: 10px;
+  @include tablet {
+    margin: 30px 20px;
+  }
+  @include desktop {
+    margin: 30px;
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+
+  /* Make header always visible, regardless of the background */
+  mix-blend-mode: difference;
+
+  &__logo {
+    width: 130px;
+    height: auto;
+    pointer-events: all;
+    margin-right: 15px;
+  }
+
+  &__right-column {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex: 0 1 200px;
+
+    @include desktop {
+      flex: 0 1 250px;
+    }
+  }
+
+  &__show-links {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: all;
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__social {
+    pointer-events: all;
+    width: 100%;
+
+    @include desktop {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: flex-end;
+      width: auto;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__link {
+    &:not(:first-of-type) {
+      margin-top: 10px;
+    }
+    @include desktop {
+      &:not(:first-of-type) {
+        margin-top: 0px;
+      }
+    }
+
+    text-decoration: none;
+    border: solid 1px;
+
+    color: $color-black;
+    background-color: $color-white;
+    border-color: $color-black;
+
+    display: block;
+    min-width: 100px;
+    padding: 6px 0 4px 4px;
+
+    font-family: $primary-font;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    text-align: left;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-black;
+      border-color: $color-white;
+    }
+  }
+}
