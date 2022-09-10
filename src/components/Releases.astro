@@ -1,5 +1,5 @@
 ---
-import Release, { Props as ReleaseProps } from "./Release.astro";
+import Release, { Props as ReleaseProps } from "./Release";
 
 const releases: ReleaseProps[] = [
   {
@@ -33,7 +33,7 @@ const releases: ReleaseProps[] = [
   {
     releases.map((release) => (
       <li class="releases__item">
-        <Release {...release} />
+        <Release client:idle {...release} />
       </li>
     ))
   }
