@@ -2,12 +2,6 @@ import { createSignal, For, onMount } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
 import { join } from "../utils/join";
 
-<li class="tracklist__item">
-  <span class="track__number">01</span>
-  <span class="track__title">ME ON</span>
-  <span class="track__duration">03:59</span>
-</li>;
-
 type Track = {
   number: number | string;
   title: string;
