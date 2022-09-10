@@ -1,6 +1,5 @@
-import { onMount, create, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
-import imagesLoaded from "imagesloaded";
 
 export interface Props {
   catalogNumber: string;
