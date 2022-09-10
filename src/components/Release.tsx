@@ -1,5 +1,6 @@
 import { onMount } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
+//import imagesLoaded from "imagesloaded";
 
 export interface Props {
   catalogNumber: string;
@@ -75,3 +76,57 @@ export default function Release(props: Props) {
     </article>
   );
 }
+
+function init() {
+  // imagesLoaded(".release__cover-inner", (instance) => {
+  //   onImageLoaded();
+  // });
+
+  const containers = document.querySelectorAll(".release");
+
+  [...containers].forEach(function (container) {
+    const coverInner = container.querySelector(".release__cover-inner");
+    const header = container.querySelector(".release__top-header");
+    const arrow = container.querySelector(".release__arrow");
+
+    if (!coverInner || !header || !arrow) {
+      console.error("Release is missing some elements");
+    }
+
+    // When user clicks on the cover:
+    if (coverInner) {
+      coverInner.addEventListener("click", function () {
+        // Hide the cover.
+        coverInner.classList.add("release__cover-inner--hidden");
+        // Rotate the arrow
+        if (arrow) {
+          arrow.classList.add("release__arrow--open");
+        }
+      });
+    }
+
+    // When user clicks on the header:
+    if (header) {
+      header.addEventListener("click", function () {
+        // Toggle the cover.
+        coverInner?.classList.toggle("release__cover-inner--hidden");
+        // Rotate the arrow
+        if (arrow) {
+          arrow.classList.toggle("release__arrow--open");
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Adds class loaded to every element targeted
+ * by imagesLoaded.
+ * @param {elements} param0
+ */
+// function onImageLoaded({ elements }: { elements: any[] }) {
+//   [...elements].forEach((el) => {
+//     const image = el.querySelector("img");
+//     image && image.classList.add("loaded");
+//   });
+// }
