@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
 import { join } from "../utils/join";
 
@@ -26,6 +26,38 @@ export default function Release(props: Props) {
   const [imageLoaded, setImageLoaded] = createSignal(false);
   const [open, setOpen] = createSignal(false);
   const toggleOpen = () => setOpen(!open());
+
+  onMount(() => {
+    const elements = [...document.querySelectorAll(".release")];
+    const collection: any = [];
+    elements.forEach((release) => {
+      const catalogNumber = release.querySelector(
+        ".release__catalog-number"
+      )?.textContent;
+      const publishDate = release.querySelector(
+        ".release__publish-date"
+      )?.textContent;
+      const releaseType =
+        release.querySelector(".release__detail")?.textContent;
+      const releaseTitle =
+        release.querySelector(".release__title")?.textContent;
+      const artistName = release.querySelector(".release__artist")?.textContent;
+      const buyLink = (release.querySelector(".release__buy-link") as any)
+        ?.href;
+      const coverImage = (release.querySelector(".release__cover-image") as any)
+        ?.src;
+      collection.push({
+        catalogNumber,
+        publishDate,
+        releaseTitle,
+        releaseType,
+        artistName,
+        buyLink,
+        coverImage,
+      });
+    });
+    console.log(collection);
+  });
 
   return (
     <article class="release">
