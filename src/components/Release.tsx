@@ -1,4 +1,4 @@
-import { onMount } from "solid-js";
+import { onMount, create, createSignal } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
 import imagesLoaded from "imagesloaded";
 
@@ -12,17 +12,7 @@ export interface Props {
   coverImage: string;
 }
 
-/**
- * Adds class loaded to every element targeted
- * by imagesLoaded.
- * @param {elements} param0
- */
-function onImageLoaded({ elements }: { elements: HTMLImageElement[] }) {
-  [...elements].forEach((el) => {
-    const image = el.querySelector("img");
-    image && image.classList.add("loaded");
-  });
-}
+const join = (tokens: (string | boolean)[]) => tokens.filter(Boolean).join(" ");
 
 export default function Release(props: Props) {
   const {
@@ -35,28 +25,35 @@ export default function Release(props: Props) {
     coverImage,
   } = props;
 
-  onMount(() => {
-    imagesLoaded(".release__cover-inner", (instance) => {
-      if (instance) {
-        instance.images.forEach((image) => {
-          if (image.isLoaded) {
-            image.img.classList.add("loaded");
-          }
-        });
-      }
-    });
-  });
+  const [imageLoaded, setImageLoaded] = createSignal(false);
+  const [open, setOpen] = createSignal(false);
+  const toggleOpen = () => setOpen(!open());
 
   return (
     <article class="release">
-      <div class="release__top-header">
+      <div class="release__top-header" onClick={toggleOpen}>
         <h2 class="release__catalog-number">{catalogNumber}</h2>
-        <img class="release__arrow" src={arrowDown} />
+        <img
+          class={join(["release__arrow", open() && "release_arrow--open"])}
+          src={arrowDown}
+        />
       </div>
       <div class="release__container">
         <div class="release__cover">
-          <div class="release__cover-inner">
-            <img class="release__cover-image loaded" src={coverImage} />
+          <div
+            class={join([
+              "release__cover-inner",
+              open() && "release__cover-inner--hidden",
+            ])}
+            onClick={toggleOpen}
+          >
+            <img
+              class={join(["release__cover-image", imageLoaded() && "loaded"])}
+              src={coverImage}
+              onLoad={() => {
+                setImageLoaded(true);
+              }}
+            />
           </div>
         </div>
         <section class="release__content">
@@ -95,46 +92,4 @@ export default function Release(props: Props) {
       </div>
     </article>
   );
-}
-
-function init() {
-  // imagesLoaded(".release__cover-inner", (instance) => {
-  //   onImageLoaded();
-  // });
-
-  const containers = document.querySelectorAll(".release");
-
-  [...containers].forEach(function (container) {
-    const coverInner = container.querySelector(".release__cover-inner");
-    const header = container.querySelector(".release__top-header");
-    const arrow = container.querySelector(".release__arrow");
-
-    if (!coverInner || !header || !arrow) {
-      console.error("Release is missing some elements");
-    }
-
-    // When user clicks on the cover:
-    if (coverInner) {
-      coverInner.addEventListener("click", function () {
-        // Hide the cover.
-        coverInner.classList.add("release__cover-inner--hidden");
-        // Rotate the arrow
-        if (arrow) {
-          arrow.classList.add("release__arrow--open");
-        }
-      });
-    }
-
-    // When user clicks on the header:
-    if (header) {
-      header.addEventListener("click", function () {
-        // Toggle the cover.
-        coverInner?.classList.toggle("release__cover-inner--hidden");
-        // Rotate the arrow
-        if (arrow) {
-          arrow.classList.toggle("release__arrow--open");
-        }
-      });
-    }
-  });
 }
