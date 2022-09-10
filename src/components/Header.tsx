@@ -52,7 +52,7 @@ export default function Header() {
         >
           {links.map((link) => (
             <a class="header__link" href={link.url} target="__blank">
-              {link.title}
+              {link.title?.toUpperCase()}
             </a>
           ))}
         </div>
