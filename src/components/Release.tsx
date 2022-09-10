@@ -1,6 +1,6 @@
 import { onMount } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
-//import imagesLoaded from "imagesloaded";
+import imagesLoaded from "imagesloaded";
 
 export interface Props {
   catalogNumber: string;
@@ -10,6 +10,18 @@ export interface Props {
   releaseTitle: string;
   buyLink: string;
   coverImage: string;
+}
+
+/**
+ * Adds class loaded to every element targeted
+ * by imagesLoaded.
+ * @param {elements} param0
+ */
+function onImageLoaded({ elements }: { elements: HTMLImageElement[] }) {
+  [...elements].forEach((el) => {
+    const image = el.querySelector("img");
+    image && image.classList.add("loaded");
+  });
 }
 
 export default function Release(props: Props) {
@@ -24,7 +36,15 @@ export default function Release(props: Props) {
   } = props;
 
   onMount(() => {
-    console.log("hello from release:", releaseTitle);
+    imagesLoaded(".release__cover-inner", (instance) => {
+      if (instance) {
+        instance.images.forEach((image) => {
+          if (image.isLoaded) {
+            image.img.classList.add("loaded");
+          }
+        });
+      }
+    });
   });
 
   return (
@@ -118,15 +138,3 @@ function init() {
     }
   });
 }
-
-/**
- * Adds class loaded to every element targeted
- * by imagesLoaded.
- * @param {elements} param0
- */
-// function onImageLoaded({ elements }: { elements: any[] }) {
-//   [...elements].forEach((el) => {
-//     const image = el.querySelector("img");
-//     image && image.classList.add("loaded");
-//   });
-// }
