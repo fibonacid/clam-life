@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/solid-js": "^1.1.0",
+    "@changesets/cli": "^2.24.4",
     "astro": "^1.2.1",
-    "@changesets/cli": "^2.24.4"
+    "solid-js": "^1.4.3"
   }
 }
