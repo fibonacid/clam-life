@@ -1,4 +1,7 @@
 ---
+import fullLogo from "../../public/assets/full-logo-3813dcbdd5ca08ae2c9122e17a4bc11e4ed1e267e79635bb23292cf58d6bbfca.svg";
+import logo from "/assets/logo-0cfaa9bfdab32083bba45aad942baeb5a5db4262ca5463677609c12732505594.svg";
+
 type Link = {
   title: string;
   url: string;
@@ -16,16 +19,10 @@ const links: Link[] = [
 
 <header class="header">
   <a href="/">
-    <img
-      class="header__logo"
-      src="/assets/full-logo-3813dcbdd5ca08ae2c9122e17a4bc11e4ed1e267e79635bb23292cf58d6bbfca.svg"
-    />
+    <img class="header__logo" src={fullLogo} />
   </a>
   <div class="header__right-column">
-    <img
-      class="header__show-links"
-      src="/assets/logo-0cfaa9bfdab32083bba45aad942baeb5a5db4262ca5463677609c12732505594.svg"
-    />
+    <img class="header__show-links" src={logo} />
     <div class="header__social header__social--hidden">
       {
         links.map((link) => (
