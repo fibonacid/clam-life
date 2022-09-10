@@ -1,6 +1,18 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal, For, onMount } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
 import { join } from "../utils/join";
+
+<li class="tracklist__item">
+  <span class="track__number">01</span>
+  <span class="track__title">ME ON</span>
+  <span class="track__duration">03:59</span>
+</li>;
+
+type Track = {
+  number: number | string;
+  title: string;
+  duration: string;
+};
 
 export interface Props {
   catalogNumber: string;
@@ -10,6 +22,7 @@ export interface Props {
   releaseTitle: string;
   buyLink: string;
   coverImage: string;
+  tracklist?: Track[];
 }
 
 export default function Release(props: Props) {
@@ -21,6 +34,7 @@ export default function Release(props: Props) {
     artistName,
     buyLink,
     coverImage,
+    tracklist,
   } = props;
 
   const [imageLoaded, setImageLoaded] = createSignal(false);
@@ -100,11 +114,15 @@ export default function Release(props: Props) {
           <div class="release__tracklist">
             <div class="release__tracklist-inner">
               <ul class="tracklist">
-                <li class="tracklist__item">
-                  <span class="track__number">01</span>
-                  <span class="track__title">ME ON</span>
-                  <span class="track__duration">03:59</span>
-                </li>
+                <For each={tracklist}>
+                  {(track) => (
+                    <li class="tracklist__item">
+                      <span class="track__number">{track.number}</span>
+                      <span class="track__title">{track.title}</span>
+                      <span class="track__duration">{track.duration}</span>
+                    </li>
+                  )}
+                </For>
               </ul>
             </div>
           </div>

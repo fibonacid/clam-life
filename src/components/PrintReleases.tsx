@@ -1,25 +1,42 @@
 import { onMount } from "solid-js";
+import type { Props as ReleaseProps } from "./Release";
 
 export default function PrintReleases() {
   onMount(() => {
     const elements = [...document.querySelectorAll(".release")];
-    const collection: any = [];
+    const collection: ReleaseProps[] = [];
     elements.forEach((release) => {
-      const catalogNumber = release.querySelector(
-        ".release__catalog-number"
-      )?.textContent;
-      const publishDate = release.querySelector(
-        ".release__publish-date"
-      )?.textContent;
+      const catalogNumber =
+        release.querySelector(".release__catalog-number")?.textContent || "";
+      const publishDate =
+        release.querySelector(".release__publish-date")?.textContent || "";
       const releaseType =
-        release.querySelector(".release__detail")?.textContent;
+        release.querySelector(".release__detail")?.textContent || "";
       const releaseTitle =
-        release.querySelector(".release__title")?.textContent;
-      const artistName = release.querySelector(".release__artist")?.textContent;
-      const buyLink = (release.querySelector(".release__buy-link") as any)
-        ?.href;
-      const coverImage = (release.querySelector(".release__cover-image") as any)
-        ?.src;
+        release.querySelector(".release__title")?.textContent || "";
+      const artistName =
+        release.querySelector(".release__artist")?.textContent || "";
+      const buyLink =
+        (release.querySelector(".release__buy-link") as any)?.href || "";
+      const coverImage =
+        (release.querySelector(".release__cover-image") as any)?.src || "";
+
+      const tracklist = [...release.querySelectorAll(".tracklist__item")].map(
+        (element) => {
+          const number =
+            element.querySelector(".track__number")?.textContent || "";
+          const title =
+            element.querySelector(".track__title")?.textContent || "";
+          const duration =
+            element.querySelector(".track__duration")?.textContent || "";
+          return {
+            number,
+            title,
+            duration,
+          };
+        }
+      );
+
       collection.push({
         catalogNumber,
         publishDate,
@@ -28,6 +45,7 @@ export default function PrintReleases() {
         artistName,
         buyLink,
         coverImage,
+        tracklist,
       });
     });
     console.log(collection);
