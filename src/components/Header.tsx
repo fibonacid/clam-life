@@ -1,6 +1,7 @@
-import { onMount } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import fullLogo from "../../public/assets/images/full-logo.svg";
 import logo from "../../public/assets/images/logo.svg";
+import { join } from "../utils/join";
 
 type Link = {
   title: string;
@@ -17,17 +18,38 @@ const links: Link[] = [
 ];
 
 export default function Header() {
+  const [showLinks, setShowLinks] = createSignal(false);
+
   onMount(() => {
-    init();
+    document.addEventListener(
+      "click",
+      function (event: any) {
+        if (!event.target.closest(".header__show-links")) {
+          // User clicked outside.
+          if (showLinks()) setShowLinks(false);
+        }
+      },
+      false
+    );
   });
+
   return (
     <header class="header">
       <a href="/">
         <img class="header__logo" src={fullLogo} />
       </a>
       <div class="header__right-column">
-        <img class="header__show-links" src={logo} />
-        <div class="header__social header__social--hidden">
+        <img
+          class="header__show-links"
+          src={logo}
+          onClick={() => setShowLinks(true)}
+        />
+        <div
+          class={join(
+            "header__social",
+            showLinks() || "header__social--hidden"
+          )}
+        >
           {links.map((link) => (
             <a class="header__link" href={link.url} target="__blank">
               {link.title}
@@ -37,29 +59,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
-
-function init() {
-  const showLinks = document.querySelector(".header__show-links");
-  const links = document.querySelector(".header__social");
-
-  if (showLinks && links) {
-    showLinks.addEventListener("click", function () {
-      links.classList.remove("header__social--hidden");
-      showLinks.classList.add("header__show-links--hidden");
-    });
-
-    // Listen for all clicks on the document
-    document.addEventListener(
-      "click",
-      function (event: any) {
-        // If the click happened inside the container, bail
-        if (event.target.closest(".header__show-links")) return;
-        // Otherwise, show the cover
-        links.classList.add("header__social--hidden");
-        showLinks.classList.remove("header__show-links--hidden");
-      },
-      false
-    );
-  }
 }

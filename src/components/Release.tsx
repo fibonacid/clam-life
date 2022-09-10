@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
+import { join } from "../utils/join";
 
 export interface Props {
   catalogNumber: string;
@@ -10,8 +11,6 @@ export interface Props {
   buyLink: string;
   coverImage: string;
 }
-
-const join = (tokens: (string | boolean)[]) => tokens.filter(Boolean).join(" ");
 
 export default function Release(props: Props) {
   const {
@@ -33,21 +32,21 @@ export default function Release(props: Props) {
       <div class="release__top-header" onClick={toggleOpen}>
         <h2 class="release__catalog-number">{catalogNumber}</h2>
         <img
-          class={join(["release__arrow", open() && "release_arrow--open"])}
+          class={join("release__arrow", open() && "release_arrow--open")}
           src={arrowDown}
         />
       </div>
       <div class="release__container">
         <div class="release__cover">
           <div
-            class={join([
+            class={join(
               "release__cover-inner",
-              open() && "release__cover-inner--hidden",
-            ])}
+              open() && "release__cover-inner--hidden"
+            )}
             onClick={toggleOpen}
           >
             <img
-              class={join(["release__cover-image", imageLoaded() && "loaded"])}
+              class={join("release__cover-image", imageLoaded() && "loaded")}
               src={coverImage}
               onLoad={() => {
                 setImageLoaded(true);
