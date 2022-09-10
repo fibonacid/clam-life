@@ -8,6 +8,7 @@ export interface Props {
   artistName: string;
   releaseTitle: string;
   buyLink: string;
+  coverImage: string;
 }
 const {
   catalogNumber,
@@ -16,6 +17,7 @@ const {
   releaseTitle,
   artistName,
   buyLink,
+  coverImage,
 } = Astro.props as Props;
 ---
 
@@ -25,6 +27,11 @@ const {
     <img class="release__arrow" src={arrowDown} />
   </div>
   <div class="release__container">
+    <div class="release__cover">
+      <div class="release__cover-inner">
+        <img class="release__cover-image loaded" src={coverImage} />
+      </div>
+    </div>
     <section class="release__content">
       <div class="release__header">
         <div class="release__left-column">
