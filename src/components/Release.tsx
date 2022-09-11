@@ -1,5 +1,5 @@
 import { createSignal, For } from "solid-js";
-import arrowDown from "../../public/assets/images/arrow-down.svg";
+import arrowDown from "../assets/images/arrow-down.svg";
 import { join } from "../utils/join";
 
 type Track = {

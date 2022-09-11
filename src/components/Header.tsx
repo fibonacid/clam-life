@@ -1,6 +1,6 @@
 import { createSignal, onMount } from "solid-js";
-import fullLogo from "../../public/assets/images/full-logo.svg";
-import logo from "../../public/assets/images/logo.svg";
+import fullLogo from "../assets/images/full-logo.svg";
+import logo from "../assets/images/logo.svg";
 import { join } from "../utils/join";
 
 type Link = {
