@@ -1,4 +1,4 @@
-import { createSignal, For, onMount } from "solid-js";
+import { createSignal, For } from "solid-js";
 import arrowDown from "../../public/assets/images/arrow-down.svg";
 import { join } from "../utils/join";
 
@@ -14,6 +14,7 @@ export interface Props {
   releaseType?: string;
   artistName: string;
   releaseTitle: string;
+  releaseImage: string;
   buyLink: string;
   coverImage: string;
   tracklist?: Track[];
@@ -25,6 +26,7 @@ export default function Release(props: Props) {
     publishDate,
     releaseType = "DIGITAL RELEASE",
     releaseTitle,
+    releaseImage,
     artistName,
     buyLink,
     coverImage,
@@ -94,6 +96,13 @@ export default function Release(props: Props) {
               <div class="release__footer-inner">
                 <a class="release__buy-link" target="_blank" href={buyLink}>
                   BUY
+                </a>
+                <a
+                  href="https://clam-pressure.bandcamp.com/album/clam013-subbo"
+                  target="_blank"
+                  class="release__image-container"
+                >
+                  <img class="release__image" src={releaseImage} />
                 </a>
               </div>
             </div>

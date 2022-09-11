@@ -14,6 +14,8 @@ export default function PrintReleases() {
         release.querySelector(".release__detail")?.textContent || "";
       const releaseTitle =
         release.querySelector(".release__title")?.textContent || "";
+      const releaseImage = (release.querySelector(".release__image") as any)
+        ?.src;
       const artistName =
         release.querySelector(".release__artist")?.textContent || "";
       const buyLink =
@@ -42,6 +44,7 @@ export default function PrintReleases() {
         publishDate,
         releaseTitle,
         releaseType,
+        releaseImage,
         artistName,
         buyLink,
         coverImage,
