@@ -1,0 +1,12 @@
+---
+import Header from "../components/Header";
+import Releases from "../components/Releases.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="homepage__wrapper">
+    <Header client:idle />
+    <Releases client:idle />
+  </div>
+</Layout>
