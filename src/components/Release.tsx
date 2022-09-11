@@ -42,6 +42,7 @@ export default function Release(props: Props) {
       <div class="release__top-header" onClick={toggleOpen}>
         <h2 class="release__catalog-number">{catalogNumber}</h2>
         <img
+          loading="lazy"
           class={join("release__arrow", open() && "release__arrow--open")}
           src={arrowDown}
         />
@@ -56,6 +57,7 @@ export default function Release(props: Props) {
             onClick={toggleOpen}
           >
             <img
+              loading="lazy"
               class={join("release__cover-image", imageLoaded() && "loaded")}
               src={coverImage}
               onLoad={() => {
@@ -102,7 +104,11 @@ export default function Release(props: Props) {
                   target="_blank"
                   class="release__image-container"
                 >
-                  <img class="release__image" src={releaseImage} />
+                  <img
+                    loading="lazy"
+                    class="release__image"
+                    src={releaseImage}
+                  />
                 </a>
               </div>
             </div>
