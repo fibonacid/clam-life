@@ -15,6 +15,7 @@ const deskStructure = () =>
             .schemaType("settings")
             .documentId("settings")
         ),
+      S.listItem().title("Releases").child(S.documentTypeList("release")),
     ]);
 
 export default deskStructure;
