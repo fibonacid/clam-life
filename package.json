@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "vercel-build": "cd studio && yarn install && yarn sanity build ../public/studio -y && cd .. && yarn build",
     "studio": "cd studio && yarn start",
     "prepare": "cd studio && yarn"
   },
