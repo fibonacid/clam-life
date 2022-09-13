@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- 8d72d90: Migrate to astro+sanity
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [0.1.3](https://bitbucket.org/lorenzorivosecchi/clam/compare/v0.1.2...v0.1.3) (2020-05-02)
