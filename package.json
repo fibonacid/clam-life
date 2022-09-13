@@ -1,20 +1,27 @@
 {
   "name": "clam-life",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "studio": "cd studio && yarn start",
+    "prepare": "cd studio && yarn"
   },
   "dependencies": {
     "@astrojs/solid-js": "^1.1.0",
+    "@astrojs/vercel": "^2.0.0",
     "@changesets/cli": "^2.24.4",
     "@types/imagesloaded": "^4.1.2",
     "astro": "^1.2.1",
     "imagesloaded": "^5.0.0",
+    "picosanity": "^4.0.0",
     "solid-js": "^1.4.3"
+  },
+  "devDependencies": {
+    "sass": "^1.54.9"
   }
 }
