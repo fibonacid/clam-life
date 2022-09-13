@@ -11,12 +11,10 @@ const query = /** groq */ `*[_type == "release"]{
   "releaseImage": releaseImage.asset->url,
   releaseTitle,
   releaseType,
-  tracklist {
-    items[]{
-      duration,
-      number,
-      title
-    }
+  "tracklist": tracklist.items[]{
+    duration,
+    number,
+    title
   }
 }`;
 const releases = await client.fetch<ReleaseProps[]>(query);
