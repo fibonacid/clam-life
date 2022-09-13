@@ -1,25 +1,43 @@
 ---
 import "../styles/application.scss";
+import { client } from "../utils/sanity";
+
+type Maybe<T> = T | null;
+
+type Data = {
+  metaTitle: Maybe<string>;
+  metaDesc: Maybe<string>;
+  ogTitle: Maybe<string>;
+  ogDesc: Maybe<string>;
+  ogImage: Maybe<string>;
+};
+
+const query = /** groq */ `*[_type == "settings"][0]{
+  ...seo {
+    metaTitle,
+    metaDesc,
+    "ogTitle": coalesce(shareTitle, metaDesc),
+    "ogDesc": coalesce(shareDesc, metaDesc),
+    "ogImage": shareGraphic.asset->url,
+  }
+}`;
+
+const data = await client.fetch<Data>(query);
+const { metaTitle, metaDesc, ogDesc, ogTitle, ogImage } = data;
 ---
 
 <!DOCTYPE html>
 <html translate="no">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Clam</title>
+    <title>{metaTitle}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="THE INFINITE CULT OF PRESSURE PEARLS." />
-    <meta property="og:title" content="Clam" />
+    <meta name="description" content={metaDesc} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="/home" />
-    <meta
-      property="og:image"
-      content="/uploads/binda/image/image/8/Clam_Web_OG_Image_1200x630px-01.png"
-    />
-    <meta
-      property="og:description"
-      content="THE INFINITE CULT OF PRESSURE PEARLS."
-    />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:description" content={ogDesc} />
     <meta property="og:site_name" content="Clam" />
   </head>
   <body data-controller="homepage" data-action="show">
