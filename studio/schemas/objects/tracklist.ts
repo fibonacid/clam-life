@@ -28,7 +28,7 @@ const tracklist = {
             {
               name: "number",
               title: "Number",
-              type: "number",
+              type: "string",
             },
             {
               name: "title",
