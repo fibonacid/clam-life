@@ -4,7 +4,7 @@ const seo = {
   type: "object",
   description: "Metadata for search engines and social media previews",
   options: {
-    collapsible: true,
+    collapsed: false,
   },
   fields: [
     {
