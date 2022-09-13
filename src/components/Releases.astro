@@ -1,6 +1,25 @@
 ---
-import Release from "./Release";
-import { releases } from "../data/releases";
+import Release, { Props as ReleaseProps } from "./Release";
+import { client } from "../utils/sanity";
+
+const query = /** groq */ `*[_type == "release"]{
+  artistName,
+  buyLink,
+  catalogNumber,
+  "coverImage": coverImage.asset->url,
+  publishDate,
+  "releaseImage": releaseImage.asset->url,
+  releaseTitle,
+  releaseType,
+  tracklist {
+    items[]{
+      duration,
+      number,
+      title
+    }
+  }
+}`;
+const releases = await client.fetch<ReleaseProps[]>(query);
 ---
 
 <ul class="releases__list">
