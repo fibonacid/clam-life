@@ -36,8 +36,10 @@ const getImage = (path) => {
 
 (async function main() {
   for await (const release of releases) {
-    await uploadImage(release.releaseImage);
-    await uploadImage(release.coverImage);
+    await Promise.all([
+      uploadImage(release.releaseImage),
+      uploadImage(release.coverImage),
+    ]);
   }
 
   //////////////////////////
@@ -74,7 +76,7 @@ const getImage = (path) => {
           items: release.tracklist.map((item) => ({
             _type: "track",
             _key: item.name,
-            name: item.name,
+            title: item.title,
             duration: item.duration,
             number: item.number,
           })),
@@ -84,6 +86,8 @@ const getImage = (path) => {
     );
   });
 
-  const result = await transaction.commit();
+  const result = await transaction.commit({
+    autoGenerateArrayKeys: true,
+  });
   console.log(result);
 })();
