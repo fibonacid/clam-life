@@ -1,7 +1,10 @@
-import { releases } from "../data/releases";
-import Release from "./Release";
+import Release, { Props as ReleaseProps } from "./Release";
 
-export default function Releases() {
+export type Props = {
+  releases: ReleaseProps[];
+};
+
+export default function Releases({ releases }: Props) {
   return (
     <ul class="releases__list">
       {releases.map((release) => (

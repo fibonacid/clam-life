@@ -1,12 +1,31 @@
 ---
+import type { Props as ReleaseProps } from "../components/Release";
 import Header from "../components/Header";
 import Releases from "../components/Releases";
 import Layout from "../layouts/Layout.astro";
+
+import { client } from "../utils/sanity";
+const query = /** groq */ `*[_type == "release"]{
+  artistName,
+  buyLink,
+  catalogNumber,
+  "coverImage": coverImage.asset->url,
+  publishDate,
+  "releaseImage": releaseImage.asset->url,
+  releaseTitle,
+  releaseType,
+  "tracklist": tracklist.items[]{
+    duration,
+    number,
+    title
+  }
+}`;
+const releases = await client.fetch<ReleaseProps[]>(query);
 ---
 
 <Layout>
   <div class="homepage__wrapper">
     <Header client:idle />
-    <Releases />
+    <Releases client:idle releases={releases} />
   </div>
 </Layout>
