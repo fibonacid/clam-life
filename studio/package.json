@@ -8,7 +8,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",
-    "build": "sanity build"
+    "build": "sanity build",
+    "dump": "sanity exec ./scripts/dump.js --with-user-token"
   },
   "keywords": [
     "sanity"
