@@ -1,23 +1,3 @@
-import type { Props as ReleaseProps } from "@app/components/Release";
-
-// export const example: ReleaseProps = {
-//   catalogNumber: "CLAM013",
-//   publishDate: "17/06/2022",
-//   releaseTitle: "SUBBO",
-//   releaseType: "DIGITAL RELEASE",
-//   releaseImage: "/Clam_files/CLAM_Website_IMG-27.png",
-//   artistName: "TONY PEREZ",
-//   buyLink: "https://clam-pressure.bandcamp.com/album/clam013-subbo",
-//   coverImage: "/Clam_files/CLAM_Website_IMG-26.png",
-//   tracklist: [
-//     {
-//       number: "01",
-//       title: "ME ON",
-//       duration: "03:59",
-//     },
-//   ],
-// };
-
 export const release = {
   name: "release",
   title: "Release",

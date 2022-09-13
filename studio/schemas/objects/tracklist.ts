@@ -1,15 +1,3 @@
-import { Props as ReleaseProps } from "@app/components/Release";
-
-type Tracklist = ReleaseProps["tracklist"];
-
-export const example: Tracklist = [
-  {
-    number: 1,
-    title: "ME ON",
-    duration: "03:59",
-  },
-];
-
 const tracklist = {
   name: "tracklist",
   title: "Tracklist",
