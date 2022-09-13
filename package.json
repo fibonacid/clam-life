@@ -19,5 +19,8 @@
     "imagesloaded": "^5.0.0",
     "picosanity": "^4.0.0",
     "solid-js": "^1.4.3"
+  },
+  "devDependencies": {
+    "sass": "^1.54.9"
   }
 }
