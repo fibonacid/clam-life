@@ -17,6 +17,7 @@
     "@types/imagesloaded": "^4.1.2",
     "astro": "^1.2.1",
     "imagesloaded": "^5.0.0",
+    "picosanity": "^4.0.0",
     "solid-js": "^1.4.3"
   }
 }
