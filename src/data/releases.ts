@@ -1,7 +1,6 @@
----
-import Release, { Props as ReleaseProps } from "./Release";
+import type { Props as ReleaseProps } from "../components/Release";
 
-const releases: ReleaseProps[] = [
+export const releases: ReleaseProps[] = [
   {
     catalogNumber: "CLAM013",
     publishDate: "17/06/2022",
@@ -734,14 +733,3 @@ const releases: ReleaseProps[] = [
     ],
   },
 ];
----
-
-<ul class="releases__list">
-  {
-    releases.map((release) => (
-      <li class="releases__item">
-        <Release client:idle {...release} />
-      </li>
-    ))
-  }
-</ul>
