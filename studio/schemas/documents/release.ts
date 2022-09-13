@@ -60,4 +60,11 @@ export const release = {
       fields: [],
     },
   ],
+  preview: {
+    select: {
+      title: "releaseTitle",
+      subtitle: "artistName",
+      media: "coverImage",
+    },
+  },
 };
