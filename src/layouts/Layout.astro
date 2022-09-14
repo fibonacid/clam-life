@@ -16,7 +16,7 @@ const query = /** groq */ `*[_type == "settings"][0]{
   ...seo {
     metaTitle,
     metaDesc,
-    "ogTitle": coalesce(shareTitle, metaDesc),
+    "ogTitle": coalesce(shareTitle, metaTitle),
     "ogDesc": coalesce(shareDesc, metaDesc),
     "ogImage": shareGraphic.asset->url,
   }
