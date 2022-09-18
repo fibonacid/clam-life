@@ -40,7 +40,10 @@ export default function Header() {
       </a>
       <div class="header__right-column">
         <img
-          class="header__show-links"
+          class={join(
+            "header__show-links",
+            showLinks() && "header__show-links--hidden"
+          )}
           src={logo}
           onClick={() => setShowLinks(true)}
         />
