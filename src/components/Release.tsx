@@ -69,7 +69,9 @@ export default function Release(props: Props) {
         <section class="release__content">
           <div class="release__header">
             <div class="release__left-column">
-              <span class="release__publish-date">{publishDate}</span>
+              <span class="release__publish-date">
+                {publishDate.replaceAll("-", "/")}
+              </span>
               <span class="release__detail">{releaseType}</span>
             </div>
             <div class="release__right-column">
