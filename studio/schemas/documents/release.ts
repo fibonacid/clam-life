@@ -60,6 +60,13 @@ export const release = {
       fields: [],
     },
   ],
+  orderings: [
+    {
+      title: "Publish Date, New",
+      name: "publishDateDesc",
+      by: [{ field: "publishDate", direction: "desc" }],
+    },
+  ],
   preview: {
     select: {
       title: "releaseTitle",
