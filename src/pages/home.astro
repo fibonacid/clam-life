@@ -5,7 +5,7 @@ import Releases from "../components/Releases";
 import Layout from "../layouts/Layout.astro";
 
 import { client } from "../utils/sanity";
-const query = /** groq */ `*[_type == "release"]{
+const query = /** groq */ `*[_type == "release"]|order(publishDate desc){
   artistName,
   buyLink,
   catalogNumber,

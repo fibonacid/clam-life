@@ -6,7 +6,7 @@ export const release = {
     {
       name: "publishDate",
       title: "Publish date",
-      type: "string",
+      type: "date",
     },
     {
       name: "catalogNumber",
